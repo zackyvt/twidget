@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twidget Source</title>
+    <meta charset="UTF-8">
+    <title>Twidget Source</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/source.css">
+</head>
+
+<body>
+    <div class="comment" id="chatMessageContainer">
+        <div class="name-box"><span id="name"></span><img class="nameIcon"/></div>
+        <div class="comment-box" id="chatMessage"></div>
+        <div class="pfp-circle"><img src="" id="pfp"></div>
+        <div class="yt-logo">
+            <img src="/static/yt-logo.png">
+        </div>
+    </div>
+
+    <div class="superchat" id="superchatContainer">
+        <img class="superchatPfp" src="undefined"/>   
+        <div class="superchatDetails">
+            <span class="superchatName">undefined</span>
+            <br/>
+            <span class="superchatAmount">undefined</span>
+        </div>
+         <div class="superchatContent">
+           <p class="superchatText">undefined</p>
+         </div>
+    </div>
+
+    <p style="display: none;" id="credential"><%= credential %></p>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+    <script src="/static/chat.js"></script>
+    <script src="/static/superchat.js"></script>
+    <script src="/static/source.js"></script>
+</body>
+
+</html>

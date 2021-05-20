@@ -2,11 +2,87 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Twidget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a1066841ff.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="splashscreen">
+      <img class="splashLogo" src="./assets/logo.png">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="appContainer" style="display: none">
+      <div class="topBar border-end">
+        <i class="fas fa-home selected img-thumbnail"></i>
+        <i class="fas fa-battery-full img-thumbnail"></i>
+        <i class="fas fa-info-circle img-thumbnail"></i>
+        <i class="fas fa-cog img-thumbnail"></i>
+        <i class="fas fa-bug img-thumbnail"></i>
+      </div>
+      <img id="pfpImage" class="pfp img-thumbnail" src=""/>
+      <div class="details">
+        <h6 id="nameText">-</h6>
+        <a id="signOutLink" href="#">Sign Out</a>
+      </div>
+      <button id="streamButton" class="streamButton btn btn-success">Start</button>
+      <div class="chatBox border">
+        <div class="chatBoxHeader border-bottom">
+          <h6>Live Chat Replay</h6>
+        </div>
+        <div id="chatBox" class="chatBoxContent">
+          <!--<div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib! dfds dsfds dsfsdf dsfds sdfds sdfsd</p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+          <div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib!</p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+          <div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib! asdasd asda asdas asdas asd asd sadasdasda asdas dasd asd asd asdsdad as das dd asd asd asdsadasdsa </p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+          <div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib! asdasd asda asdas asdas asd asd sadasdasda asdas dasd asd asd asdsdad as das dd asd asd asdsadasdsa </p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+          <div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib! asdasd asda asdas asdas asd asd sadasdasda asdas dasd asd asd asdsdad as das dd asd asd asdsadasdsa </p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+          <div class="superchat">
+            <img class="superchatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="superchatName">Zacky Talib</h6>
+            <h5 class="superchatAmount">$20</h5>
+            <button class="superchatButton btn btn-success btn-sm">Select</button>
+            <div class="superchatMessage"><p>ello World</p>
+            </div>
+          </div>
+          <div class="chat">
+            <img class="chatPfp" src="https://yt3.ggpht.com/yti/ANoDKi42s1_r8lKyjNm3hdBq3rBZDn6FwnINks0tGJnM2Q=s88-c-k-c0x00ffffff-no-rj-mo">
+            <h6 class="chatName">Zacky Talib</h6>
+            <p class="chatMessage">This is a test message by Zacky Talib! asdasd asda asdas asdas asd asd sadasdasda asdas dasd asd asd asdsdad as das dd asd asd asdsadasdsa </p>
+            <button class="chatButton btn btn-success btn-sm">Select</button>
+          </div>
+        </div>-->  
+      </div>
+    </div>
+    <script src="./App/App.js" type="module"></script>
   </body>
 </html>

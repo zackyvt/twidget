@@ -1,0 +1,124 @@
+body {
+    background-color: #808080;
+  }
+  
+  .comment {
+    position: absolute;
+    width: 420px;
+    height: 105px;
+  }
+  
+  .comment .pfp-circle {
+    position: absolute;
+    border-radius: 500px;
+    border: 2px solid #E02020;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+  }
+  
+  .comment .yt-logo {
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: red;
+  }
+  
+  .comment .yt-logo img {
+    position: absolute;
+    left: -9px;
+    top: -1px;
+    width: 60px;
+  }
+  
+  .comment .pfp-circle img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 49px;
+  }
+  
+  .comment .name-box {
+    position: absolute;
+    left: 80px;
+    top: 10px;
+    width: 275px;
+    height: 35px;
+    background-color: #E02020;
+    border-radius: 5px;  
+    padding-left: 37px;
+    padding-top: 5px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .comment .comment-box {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    width: 300px;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 15px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .superchat {
+    display: grid;
+    grid-template-columns: 10px 60px auto;
+    grid-template-rows: 10px 45px 10px auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 420px;
+  }
+  
+  .superchatPfp {
+    border-radius: 50%;
+    width: 45px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+  
+  .superchatDetails {
+    grid-column-start: 3;
+    grid-row-start: 2;
+  }
+  
+  .superchatName {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14;
+    line-height: 1.5;
+  }
+  
+  .superchatAmount {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16;
+  }
+  
+  .superchatContent {
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .superchatText {
+    margin: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+
+  .name-box span{
+    float: left;
+    margin-right: 10px;
+  }
+
+  .nameIcon {
+    width: 20px;
+  }

@@ -1,5 +1,8 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, globalShortcut} = require('electron');
 const path = require('path');
+
+const Store = require('electron-store');
+Store.initRenderer();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -9,15 +12,34 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 540,
+    height: 590,
+    minHeight: 560,
+    minWidth: 400,
+    icon: path.join(__dirname, '/assets/Icon.ico'),
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  mainWindow.setMenu(null);
+
+  globalShortcut.register("CmdOrCtrl+F12", () => {
+    mainWindow.isFocused() && mainWindow.webContents.toggleDevTools();
+  });
+
+  globalShortcut.register("CmdOrCtrl+F11", () => {
+    mainWindow.isFocused() && console.log(mainWindow.getSize());
+  });
+
+  globalShortcut.register("CmdOrCtrl+F10", () => {
+    mainWindow.isFocused() && mainWindow.reload();
+  });
 };
 
 // This method will be called when Electron has finished
