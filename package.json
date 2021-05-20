@@ -19,12 +19,17 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./assets/icon.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "twidget"
+            "name": "twidget",
+            "config": {
+              "setupIcon": "./assets/icon.ico"
+            }
           }
         },
         {
