@@ -53,7 +53,8 @@
           "config": {
             "repository": {
               "owner": "ZackyTalib",
-              "name": "Twidget"
+              "name": "Twidget",
+              "authToken": "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"
             }
           }
         }
