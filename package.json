@@ -20,6 +20,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
+        "executableName": "Twidget",
+        "name": "Twidget",
         "icon": "./assets/icon.ico"
       },
       "makers": [
@@ -57,7 +59,8 @@
             "repository": {
               "owner": "ZackyTalib",
               "name": "Twidget"
-            }
+            },
+            "prerelease": true
           }
         }
       ]
