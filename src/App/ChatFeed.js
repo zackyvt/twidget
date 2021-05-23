@@ -1,5 +1,16 @@
 const {google} = require('googleapis');
 
+String.prototype.escape = function() {
+    var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return this.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
 export default class ChatFeed {
     constructor(auth, broadcastId, chatCallback, app){
         this.broadcastId = broadcastId;
@@ -66,15 +77,15 @@ export default class ChatFeed {
                 let chat = chatsArray[i];
                 if(chat.snippet.type === "textMessageEvent"){
                     chatsArray[i] = {
-                        type: "MessageChat", name: chat.authorDetails.displayName, message: chat.snippet.displayMessage, pfp: chat.authorDetails.profileImageUrl
+                        type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl
                     };
                 } if(chat.snippet.type === "superChatEvent") {
                     chatsArray[i] = {
-                        type: "SuperChat", name: chat.authorDetails.displayName, message: chat.snippet.superChatDetails.userComment, pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superChatDetails.amountDisplayString, tier: chat.snippet.superChatDetails.tier
+                        type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.superChatDetails.userComment.escape(), pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superChatDetails.amountDisplayString, tier: chat.snippet.superChatDetails.tier
                     };
                 } if(chat.snippet.type === "superStickerEvent"){
                     chatsArray[i] = {
-                        type: "SuperChat", name: chat.authorDetails.displayName, message: "", pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superStickerDetails.amountDisplayString, tier: chat.snippet.superStickerDetails.tier
+                        type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: "", pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superStickerDetails.amountDisplayString, tier: chat.snippet.superStickerDetails.tier
                     };
                 }
                 this.chats.push(chatsArray[i]);
