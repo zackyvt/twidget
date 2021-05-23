@@ -85,7 +85,8 @@ class App {
                     text: "Enter the youtube livestream URL",
                     input: "url",
                     showCancelButton: true,
-                    confirmButtonTetx: "Connect"
+                    confirmButtonTetx: "Connect",
+                    validationMessage: "Invalid URL. Please also make sure the URL contains the \"https://\" text"
                 }).then((value) => {
                     console.log(value);
                     if(value.isDismissed || value.isDenied){
