@@ -58,7 +58,7 @@
           "config": {
             "repository": {
               "owner": "ZackyTalib",
-              "name": "Twidget"
+              "name": "twidget"
             },
             "prerelease": true
           }
