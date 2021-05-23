@@ -19,7 +19,8 @@ const createWindow = () => {
     icon: path.join(__dirname, '/assets/Icon.ico'),
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      enableRemoteModule: true
     },
     show: false
   });
@@ -41,7 +42,7 @@ const createWindow = () => {
   ipcMain.on('stopLoad', (event, arg) => {
     loadingWindow.destroy();
     mainWindow.show();
-  })
+  });
 
   // Open the DevTools.
   mainWindow.setMenu(null);

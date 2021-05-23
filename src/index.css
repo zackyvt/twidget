@@ -17,7 +17,19 @@ body {
   width: 100vw;
   height: 100vh;
   grid-template-columns: 20px 50px 1fr 1fr 20px;
-  grid-template-rows: 20px 50px 20px 1fr 20px;
+  grid-template-rows: 20px 50px 20px 1fr auto;
+}
+
+#version {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row: 5;
+  margin: 10px 0 10px 0;
+  padding: 0;
+  justify-self: center;
+  align-self: end;
+  font-size: .7em;
+  font-weight: lighter;
 }
 
 /* Top Bar */

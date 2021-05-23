@@ -7,6 +7,7 @@ import AccountDetails from "./AppComponents/AccountDetails.js"
 import StreamButton from "./AppComponents/StreamButton.js"
 
 const { ipcRenderer } = require('electron')
+const appVersion = require('electron').remote.app.getVersion();
 
 class App {
     constructor() {
@@ -25,6 +26,7 @@ class App {
         });
         this.streamButton = new StreamButton(this.startService, this.stopService);
         this.auth = new Authentication(this.handleSignIn, this);
+        document.querySelector("#version").innerHTML = "Version " + appVersion;
 
         /* Quick load user details if exists */
         this.auth.quickLoadUser().then((exists) => {
