@@ -103,6 +103,9 @@ class App {
             /* Construct Chat Feed */
             this.chatFeed = new ChatFeed(this.auth.oauth2Client, link, (error, chat) => {
                 if(error){
+                    if(this.streamButton.buttonState == "stop"){
+                        this.streamButton.buttonClicked();
+                    }
                     this.logError(error);
                 } else {
                     this.chatBox.addChat(chat)
