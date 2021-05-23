@@ -1,12 +1,15 @@
 import Authentication from "./Authentication.js"
 import Server from './Server.js';
 
+const { ipcRenderer } = require('electron')
+
 class Login {
     constructor(){
         this.auth;
     }
 
     initializeLogin(){
+        ipcRenderer.send('stopLoad');
         this.auth = new Authentication(this.handleSignIn, this);
 
         /* Check if quick loaded user exists */

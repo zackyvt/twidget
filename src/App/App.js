@@ -6,6 +6,8 @@ import ChatBox from "./AppComponents/ChatBox.js"
 import AccountDetails from "./AppComponents/AccountDetails.js"
 import StreamButton from "./AppComponents/StreamButton.js"
 
+const { ipcRenderer } = require('electron')
+
 class App {
     constructor() {
         this.streamButton;
@@ -27,8 +29,7 @@ class App {
         /* Quick load user details if exists */
         this.auth.quickLoadUser().then((exists) => {
             if(exists){
-                document.querySelector(".splashscreen").style.display = "none";
-                document.querySelector(".appContainer").style.display = "grid";
+                ipcRenderer.send('stopLoad');
                 this.accountDetails = new AccountDetails(this.auth.authData.name, this.auth.authData.pfp, this.signOut);
             } else {
                 this.initializeLogin();

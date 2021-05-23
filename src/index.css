@@ -260,19 +260,3 @@ body {
 .signInLoad {
   margin-top: 50px;
 }
-
-/* Splashscreen */
-
-.splashscreen {
-  width: 100vw;
-  height: 100vh;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.splashLogo {
-  width: 70px;
-  margin-bottom: 50px;
-}

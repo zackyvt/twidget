@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut} = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain } = require('electron');
 const path = require('path');
 
 const Store = require('electron-store');
@@ -20,11 +20,28 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
-    }
+    },
+    show: false
+  });
+
+  const loadingWindow = new BrowserWindow({
+    width: 540,
+    height: 590,
+    minHeight: 560,
+    minWidth: 400,
+    icon: path.join(__dirname, '/assets/Icon.ico'),
+    frame: false,
+    alwaysOnTop: true
   });
 
   // and load the index.html of the app.
+  loadingWindow.loadFile(path.join(__dirname, 'loading.html'));
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+
+  ipcMain.on('stopLoad', (event, arg) => {
+    loadingWindow.destroy();
+    mainWindow.show();
+  })
 
   // Open the DevTools.
   mainWindow.setMenu(null);
