@@ -20,18 +20,6 @@ body {
   grid-template-rows: 20px 50px 20px 1fr auto;
 }
 
-#version {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row: 5;
-  margin: 10px 0 10px 0;
-  padding: 0;
-  justify-self: center;
-  align-self: end;
-  font-size: .7em;
-  font-weight: lighter;
-}
-
 /* Top Bar */
 
 .topBar {
@@ -112,11 +100,23 @@ body {
 .chatBoxHeader {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.chatBoxHeader * {
+.chatBoxHeader h6 {
   margin: 20px 0px 20px 20px;
   padding: 0;
+}
+
+.chatBoxHeader img {
+  width: 20px;
+  margin-right: 20px;
+  padding-top: 5px;
+  cursor:pointer;
+}
+
+.chatBoxHeader img:hover {
+  opacity: 0.7;
 }
 
 .chatBoxContent {
@@ -222,6 +222,20 @@ body {
   font-weight: normal;
   margin: 10px;
   font-size: small;
+}
+
+/* Footer */
+
+#version {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row: 5;
+  margin: 10px 0 10px 0;
+  padding: 0;
+  justify-self: center;
+  align-self: end;
+  font-size: .7em;
+  font-weight: lighter;
 }
 
 /* Login Container */
