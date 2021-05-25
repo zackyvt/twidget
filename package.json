@@ -22,7 +22,8 @@
       "packagerConfig": {
         "executableName": "Twidget",
         "name": "Twidget",
-        "icon": "./assets/icon.ico"
+        "icon": "./assets/icon.ico",
+        "asar": true
       },
       "makers": [
         {
@@ -68,6 +69,7 @@
   },
   "dependencies": {
     "ejs": "^3.1.6",
+    "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.0.0",
     "express": "^4.17.1",
