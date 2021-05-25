@@ -1,5 +1,8 @@
 const {google} = require('googleapis');
 
+import "./ChatTest.js"
+import ChatTest from "./ChatTest.js";
+
 String.prototype.escape = function() {
     var tagsToReplace = {
         '&': '&amp;',
@@ -73,7 +76,7 @@ export default class ChatFeed {
     loadLiveChats(){
         this.getLiveChats().then((chats) => {
             let chatsArray = chats.items;
-            
+
             chatsArrayLoop:
             for(let i=0; i<chatsArray.length; i++){
                 let chat = chatsArray[i];
