@@ -5,6 +5,7 @@ import SourceConnection from "./SourceConnection.js"
 import ChatBox from "./AppComponents/ChatBox.js"
 import AccountDetails from "./AppComponents/AccountDetails.js"
 import StreamButton from "./AppComponents/StreamButton.js"
+import AppTutorial from "./AppComponents/AppTutorial.js"
 
 const { ipcRenderer } = require('electron')
 const appVersion = require('electron').remote.app.getVersion();
@@ -17,6 +18,7 @@ class App {
         this.auth;
         this.chatFeed;
         this.sourceConnection;
+        this.appTutorial;
     }
 
     initializeMain(){
@@ -26,6 +28,8 @@ class App {
         });
         this.streamButton = new StreamButton(this.startService, this.stopService);
         this.auth = new Authentication(this.handleSignIn, this);
+        this.appTutorial = new AppTutorial();
+
         document.querySelector("#version").innerHTML = "Version " + appVersion;
 
         /* Quick load user details if exists */
