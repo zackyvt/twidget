@@ -48,6 +48,29 @@
         </div>
       </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          FAQ & Troubleshooting
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div>
+            <h6 class="questionHeading">Why is the Twidget modal not showing up in OBS?</h6>  
+            <p class="questionAnswer">This is because the OBS browser source has not refreshed the Twidget page. To refresh the OBS source, switch to a different scene in OBS which does not contain the Twidget browser source, and then switch back to the scene containing the Twidget browser source. This should refresh the browser source and then the Twidget modal will show up.</p>
+          </div>
+          <div>
+            <h6 class="questionHeading">Why are the old Youtube Livestream chats not getting loaded?</h6>  
+            <p class="questionAnswer">After a certain point, Youtube neglects to show the oldest messages in the chats. This only happens to very old messages in the stream though and should not be a point of concern.</p>
+          </div>
+          <div>
+            <h6 class="questionHeading">Can you load other channel's chat stream in Twidget?</h6>  
+            <p class="questionAnswer">No, you can only load the chat stream of a livestream which is streamed by the Google account you logged in to Twidget with. Connecting Twidget with a stream that is not streamed by your account will result in an error.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <style>
@@ -62,5 +85,9 @@
 
       ol {
           text-align: start;
+      }
+
+      .questionAnswer {
+        font-size: small;
       }
   </style>
