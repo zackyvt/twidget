@@ -27,7 +27,7 @@ export default class Server {
 
         this.app.get('/oauthcallback', (req, res) => {
             this.authCallback.call(this.authApp, req.query.code);
-            res.send(req.query.code);
+            res.render('oauthRedirect');
         });
 
         this.app.listen(this.port, () => {
