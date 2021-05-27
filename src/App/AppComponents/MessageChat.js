@@ -1,20 +1,25 @@
 import ChatButton from "./ChatButton.js"
 
 export default class MessageChat {
-    constructor(name, pfp, message, id, selectedCall, unselectedCall){
+    constructor(name, pfp, message, userStatus, id, selectedCall, unselectedCall){
         this.name = name;
         this.pfp = pfp;
         this.message = message;
         this.id = id;
         this.buttonController;
         this.selectedCall = selectedCall;
-        this.unselectedCall = unselectedCall
+        this.unselectedCall = unselectedCall;
+        this.userStatus = userStatus;
     }
 
     buildMessage(){
         let chatDiv = document.createElement("div");
         chatDiv.id = "chat" + this.id;
         chatDiv.classList.add("chat");
+        
+        if(this.userStatus == "owner"){
+            chatDiv.classList.add("ownerChat");
+        }
 
         let imagePfp = document.createElement("img");
         imagePfp.classList.add("chatPfp");
@@ -22,7 +27,12 @@ export default class MessageChat {
 
         let chatName = document.createElement("h6");
         chatName.classList.add("chatName");
-        chatName.innerHTML = this.name;
+        
+        if(this.userStatus == "owner"){
+            chatName.innerHTML = "<span class='ownerName'>" + this.name + "</span>";
+        } else {
+            chatName.innerHTML = this.name;
+        }
 
         let chatMessage = document.createElement("p");
         chatMessage.classList.add("chatMessage");

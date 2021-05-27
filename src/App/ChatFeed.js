@@ -83,8 +83,9 @@ export default class ChatFeed {
                 switch(chat.snippet.type){
                     case "textMessageEvent":
                         chatsArray[i] = {
-                            type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl
+                            type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl,
                         };
+                        chatsArray[i].userStatus = chat.authorDetails.isChatOwner ? "owner" : "normal";
                         break;
                     case "superChatEvent":
                         chatsArray[i] = {

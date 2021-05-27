@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 /*::-webkit-scrollbar {
@@ -150,6 +151,7 @@ body {
   grid-column: 3;
   grid-row: 1;
   font-size: small;
+  margin-bottom: 0;
 }
 
 .chatMessage {
@@ -222,6 +224,18 @@ body {
   font-weight: normal;
   margin: 10px;
   font-size: small;
+}
+
+/* Owner Implementation */
+
+.ownerChat {
+  grid-template-rows: 20px auto;
+}
+
+.ownerName {
+  background-color: #ffd600;
+  padding: 2px 5px 2px 5px;
+  border-radius: 5px;
 }
 
 /* Footer */
