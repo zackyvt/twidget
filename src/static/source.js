@@ -17,6 +17,10 @@ firebase.auth().signInWithCredential(credential).then((val) => {
     console.log(val);
     listenOnData();
 }).catch((error) => {
+    if(error.code === "auth/invalid-credential"){
+        document.querySelector(".alert").innerHTML = "An error occured! Please sign out in the Twidget app and re-sign in."
+        document.querySelector(".alert").style.display = "block";
+    }
     console.error(error);
 });
 

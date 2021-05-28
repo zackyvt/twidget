@@ -85,7 +85,7 @@ export default class ChatFeed {
                         chatsArray[i] = {
                             type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl,
                         };
-                        chatsArray[i].userStatus = chat.authorDetails.isChatOwner ? "owner" : "normal";
+                        chatsArray[i].userStatus = chat.authorDetails.isChatOwner ? "owner" : (chat.authorDetails.isChatModerator ? "moderator" : "normal");
                         break;
                     case "superChatEvent":
                         chatsArray[i] = {

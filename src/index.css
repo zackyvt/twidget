@@ -234,8 +234,15 @@ body {
 
 .ownerName {
   background-color: #ffd600;
-  padding: 2px 5px 2px 5px;
-  border-radius: 5px;
+  padding: 2px 7px 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Moderator Implementation */
+
+.moderatorName {
+  color: #4684f1;
 }
 
 /* Footer */

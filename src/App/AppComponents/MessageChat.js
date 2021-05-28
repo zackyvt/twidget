@@ -28,10 +28,16 @@ export default class MessageChat {
         let chatName = document.createElement("h6");
         chatName.classList.add("chatName");
         
-        if(this.userStatus == "owner"){
-            chatName.innerHTML = "<span class='ownerName'>" + this.name + "</span>";
-        } else {
-            chatName.innerHTML = this.name;
+
+        switch(this.userStatus){
+            case "owner":
+                chatName.innerHTML = "<span class='ownerName'>" + this.name + "</span>";
+                break;
+            case "moderator":
+                chatName.innerHTML = "<span class='moderatorName'>" + this.name + " <img src='assets/mod-icon.png' /></span>";
+                break;
+            default:
+                chatName.innerHTML = this.name;
         }
 
         let chatMessage = document.createElement("p");

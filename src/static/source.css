@@ -8,7 +8,7 @@ body {
     height: 105px;
   }
   
-  .comment .pfp-circle {
+  .pfp-circle {
     position: absolute;
     border-radius: 500px;
     border: 2px solid #E02020;
@@ -121,4 +121,23 @@ body {
 
   .nameIcon {
     width: 20px;
+    margin-bottom: 2px;
   }
+
+  /* User Statuses */
+
+  .moderator {
+    border: 2px solid royalblue;
+  }
+
+  .owner {
+    border: 2px solid gold;
+  }
+
+  /* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
