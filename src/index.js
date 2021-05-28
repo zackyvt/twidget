@@ -18,7 +18,7 @@ const createWindow = () => {
     height: 590,
     minHeight: 560,
     minWidth: 400,
-    icon: path.join(__dirname, '/assets/Icon.ico'),
+    icon: path.join(__dirname, '/assets/icon.ico'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -32,14 +32,14 @@ const createWindow = () => {
     height: 590,
     minHeight: 560,
     minWidth: 400,
-    icon: path.join(__dirname, '/assets/Icon.ico'),
+    icon: path.join(__dirname, '/assets/icon.ico'),
     frame: false,
     alwaysOnTop: true
   });
 
   // and load the index.html of the app.
-  loadingWindow.loadFile(path.join(__dirname, 'loading.html'));
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  loadingWindow.loadFile(path.join(__dirname, '/views/loading.html'));
+  mainWindow.loadFile(path.join(__dirname, '/views/index.html'));
 
   ipcMain.on('stopLoad', (event, arg) => {
     loadingWindow.destroy();

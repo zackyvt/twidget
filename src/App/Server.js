@@ -17,8 +17,8 @@ export default class Server {
     }
 
     startServer(serverCallback){
-        this.app.use('/static', express.static(path.join(__dirname, '/static')))
-        this.app.set('views', path.join(__dirname, '/views'));
+        this.app.use('/static', express.static(path.join(__dirname, '../public/static')))
+        this.app.set('views', path.join(__dirname, '../public/views'));
         this.app.set('view engine', 'ejs');
 
         this.app.get('/', (req, res) => {

@@ -34,7 +34,7 @@ export default class MessageChat {
                 chatName.innerHTML = "<span class='ownerName'>" + this.name + "</span>";
                 break;
             case "moderator":
-                chatName.innerHTML = "<span class='moderatorName'>" + this.name + " <img src='assets/mod-icon.png' /></span>";
+                chatName.innerHTML = "<span class='moderatorName'>" + this.name + " <img src='../assets/images/mod-icon.png' /></span>";
                 break;
             default:
                 chatName.innerHTML = this.name;
