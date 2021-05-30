@@ -5,7 +5,7 @@ class Chat {
         document.querySelector("#pfp").src = data.pfp;
         document.querySelector("#chatMessage").innerHTML = data.message;
     
-        switch(data.userStatus){
+        /*switch(data.userStatus){
             case "moderator":
                 document.querySelector(".pfp-circle").classList.remove("owner");
                 document.querySelector(".pfp-circle").classList.add("moderator");
@@ -20,7 +20,7 @@ class Chat {
                 document.querySelector(".pfp-circle").classList.remove("moderator");
                 document.querySelector(".pfp-circle").classList.remove("owner");
                 document.querySelector(".nameIcon").src = "";
-        }
+        }*/
     }
 
     setInvisible(){
