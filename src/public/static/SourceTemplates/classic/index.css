@@ -1,0 +1,45 @@
+.classicContainer {
+    display: flex;
+}
+
+.classicContainer .contentBar {
+    margin-left: 60px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.classicContainer .pfp {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid red;
+    position: absolute;
+}
+
+.classicContainer .ytlogo {
+    width: 60px;
+    position: absolute;
+    left: 35px;
+    top: 50px
+}
+
+.classicContainer .nameBar {
+    padding: 7px;
+    padding-left: 20px;
+    background-color:#de3a36;
+    color: white;
+    width: 75%;
+    border-radius: 0px 9px 0px 0px;
+}
+
+.classicContainer .nameBar span {
+    margin-left: 15px;
+}
+
+.classicContainer .messageBar {
+    padding: 10px;
+    width: auto;
+    background-color: white;
+    border-radius: 0px 10px 10px 10px;
+    padding-left: 35px;
+}

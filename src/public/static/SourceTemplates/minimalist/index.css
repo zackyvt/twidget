@@ -1,0 +1,39 @@
+.minimalistContainer {
+    margin-top: 20px;
+    width: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.minimalistContainer .topBar {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    background-color: rgba(255,255,255,.9);
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.minimalistContainer .topBar img {
+    width: 30px;
+    border-radius: 8px;
+}
+
+.minimalistContainer .topBar p {
+    margin: 0;
+    margin-left: 15px;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.minimalistContainer .contentBar {
+    padding: 10px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.minimalistContainer .contentBar p {
+    font-size: 1rem;
+    margin: 5px;
+    color: rgba(0,0,0,1);
+}

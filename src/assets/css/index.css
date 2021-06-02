@@ -121,10 +121,9 @@ body {
 }
 
 .chatBoxHeader .settingsButton {
-  width: 21px;
+  width: 18px;
   padding-top: 5px;
   cursor:pointer;
-  opacity: 1.5;
 }
 
 .chatBoxHeader img:hover {
@@ -317,4 +316,10 @@ body {
 
 .signInLoad {
   margin-top: 50px;
+}
+
+/* Swal */
+
+.swal-wide{
+  max-width: 500px !important;
 }

@@ -1,0 +1,28 @@
+.edgeContainer {
+    margin-top: 20px;
+    border-bottom: 5px solid #f34036;
+    display: flex;
+    background-color: white;
+    align-items: flex-start;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.edgeContainer img {
+    border-radius: 100%;
+    width: 40px;
+    margin: 7px;
+}
+
+.edgeContainer .contentBar .name {
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 5px;
+    color: red;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.edgeContainer .contentBar .message {
+    margin: 5px 5px 10px 5px;
+    font-size: 1rem;
+}

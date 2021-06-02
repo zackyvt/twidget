@@ -1,0 +1,33 @@
+.simpleContainer {
+    display: flex;
+    margin-top: 20px;
+    background-color: white;
+    border-left: 7px solid red;
+}
+
+.simpleContainer .pfpBlock {
+    position: relative;
+}
+
+.simpleContainer .pfpBlock .pfp {
+    height: 50px;
+    margin: 10px;
+}
+
+.simpleContainer .pfpBlock .ytlogo {
+    position: absolute;
+    height: 30px;
+    left: 35px;
+    top: 40px;
+}
+
+.simpleContainer .contentBar .name {
+    margin: 0;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+.simpleContainer .contentBar .message {
+    margin: 5px 10px 10px 12px;
+}

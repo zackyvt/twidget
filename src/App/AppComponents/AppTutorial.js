@@ -21,8 +21,10 @@ export default class AppTutorial {
 
     async buttonClicked(){
         Swal.fire({
-            html: html,
-            grow: "row"
+            html: await this.parseTutorialData(),
+            grow: "row",
+            showConfirmButton: false,
+            showCloseButton: true
         });
     }
 }

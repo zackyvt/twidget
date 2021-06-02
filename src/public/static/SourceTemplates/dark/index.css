@@ -1,0 +1,30 @@
+.darkContainer {
+    margin-top: 20px;
+    background-color: #1f304a;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+
+.darkContainer .pfp {
+    display: none;
+    width: 35px;
+    margin: 20px;
+    border-radius: 100%;
+}
+
+.darkContainer .ytlogo {
+    width: 25px;
+    margin: 20px;
+}
+
+.darkContainer .contentBar .name {
+    margin: 20px 0px 0px 0px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,.5);
+}
+
+.darkContainer .contentBar .message {
+    color: rgba(255,255,255,.7);
+    margin: 10px 20px 20px 0px;
+}

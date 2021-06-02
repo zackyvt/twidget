@@ -1,6 +1,5 @@
 const {google} = require('googleapis');
 
-import "./ChatTest.js"
 import ChatTest from "./ChatTest.js";
 
 String.prototype.escape = function() {
@@ -77,28 +76,32 @@ export default class ChatFeed {
         this.getLiveChats().then((chats) => {
             let chatsArray = chats.items;
 
+            chatsArray.push(ChatTest.createMessageChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message));
+            chatsArray.push(ChatTest.createSuperChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message, ChatTest.dataFields().amount, 3));
+            chatsArray.push(ChatTest.createSuperChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message, ChatTest.dataFields().amount, 1));
+            chatsArray.push(ChatTest.createSuperSticker(ChatTest.name, ChatTest.dataFields().pfp, ChatTest.dataFields().amount, 3));
+
             chatsArrayLoop:
             for(let i=0; i<chatsArray.length; i++){
                 let chat = chatsArray[i];
                 switch(chat.snippet.type){
                     case "textMessageEvent":
                         chatsArray[i] = {
-                            type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl,
+                            type: "MessageChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.displayMessage.escape(), pfp: chat.authorDetails.profileImageUrl, template: this.app.appSettings.settingTemplates.MessageChat
                         };
                         chatsArray[i].userStatus = chat.authorDetails.isChatOwner ? "owner" : (chat.authorDetails.isChatModerator ? "moderator" : "normal");
                         break;
                     case "superChatEvent":
                         chatsArray[i] = {
-                            type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.superChatDetails.userComment.escape(), pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superChatDetails.amountDisplayString, tier: chat.snippet.superChatDetails.tier
+                            type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: chat.snippet.superChatDetails.userComment.escape(), pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superChatDetails.amountDisplayString, tier: chat.snippet.superChatDetails.tier, template: this.app.appSettings.settingTemplates.SuperChat
                         };
                         break;
                     case "superStickerEvent":
                         chatsArray[i] = {
-                            type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: "", pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superStickerDetails.amountDisplayString, tier: chat.snippet.superStickerDetails.tier
+                            type: "SuperChat", name: chat.authorDetails.displayName.escape(), message: "", pfp: chat.authorDetails.profileImageUrl, amount: chat.snippet.superStickerDetails.amountDisplayString, tier: chat.snippet.superStickerDetails.tier, template: this.app.appSettings.settingTemplates.SuperSticker
                         };
                         break;
                     default:
-                        console.log("herehere");
                         continue chatsArrayLoop;
                 }
 

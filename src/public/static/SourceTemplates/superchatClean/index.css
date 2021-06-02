@@ -1,0 +1,71 @@
+.superchatContainer {
+    display: flex;
+    margin-top: 20px;
+    background-color: white;
+    border-left: 7px solid red;
+}
+
+.superchatContainer .pfpBlock {
+    position: relative;
+}
+
+.superchatContainer .pfpBlock .pfp {
+    height: 50px;
+    margin: 10px;
+}
+
+.superchatContainer .pfpBlock .ytlogo {
+    position: absolute;
+    height: 30px;
+    left: 35px;
+    top: 40px;
+}
+
+.superchatContainer .contentBar .name {
+    margin: 0;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+.superchatContainer .contentBar .message {
+    margin: 5px 10px 10px 12px;
+}
+
+/* Tiers */ 
+
+.tier2 {
+    background-color: #00e5ff;
+    border-left: 12px solid #00b8d4;
+    color: #000000;
+}
+
+.tier3 {
+    background-color: #1de9b6;
+    border-left: 12px solid #00bfa5;
+    color: #000000;
+}
+
+.tier4 {
+    background-color: #ffca28;
+    border-left: 12px solid #ffb300;
+    color: #000000;
+}
+
+.tier5 {
+    background-color: #f57c00;
+    border-left: 12px solid #e65100;
+    color: rgba(255, 255,255, 0.9);
+}
+
+.tier6 {
+    background-color: #e91e63;
+    border-left: 12px solid #c2185b;
+    color: rgba(255, 255,255, 0.9);
+}
+
+.tier7 {
+    background-color: #e62117;
+    border-left: 12px solid #d00000;
+    color: rgba(255, 255,255, 0.9);
+}

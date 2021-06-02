@@ -6,6 +6,7 @@ import ChatBox from "./AppComponents/ChatBox.js"
 import AccountDetails from "./AppComponents/AccountDetails.js"
 import StreamButton from "./AppComponents/StreamButton.js"
 import AppTutorial from "./AppComponents/AppTutorial.js"
+import AppSettings from "./AppComponents/AppSettings.js"
 
 const { ipcRenderer } = require('electron')
 const appVersion = require('electron').remote.app.getVersion();
@@ -19,6 +20,7 @@ class App {
         this.chatFeed;
         this.sourceConnection;
         this.appTutorial;
+        this.appSettings;
     }
 
     initializeMain(){
@@ -29,6 +31,7 @@ class App {
         this.streamButton = new StreamButton(this.startService, this.stopService);
         this.auth = new Authentication(this.handleSignIn, this);
         this.appTutorial = new AppTutorial();
+        this.appSettings = new AppSettings();
 
         document.querySelector("#version").innerHTML = "Version " + appVersion;
 
@@ -52,7 +55,7 @@ class App {
 
             /* Construct new account details with true auth user */
             this.accountDetails = new AccountDetails(this.auth.authData.name, this.auth.authData.pfp, this.signOut);
-            this.sourceConnection = new SourceConnection(this.auth.firebase);
+            this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings);
             this.sourceConnection.initializeSourceConnection();
             if(this.streamButton.buttonState == "wait"){
                 this.streamButton.buttonState = "start";
