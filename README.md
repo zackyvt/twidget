@@ -91,7 +91,7 @@ Project Link: https://github.com/ZackyTalib/twidget
 ## Actknowledgements
 * [EJS](https://github.com/mde/ejs)
 * [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)
-* [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startu)
+* [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup)
 * [electron-store](https://github.com/sindresorhus/electron-store)
 * [Firebase](https://firebase.google.com/)
 * [GoogleAPIs](https://github.com/googleapis/google-api-nodejs-client)
