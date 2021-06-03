@@ -20,15 +20,29 @@ This section will show you how to run Twidget alongside the source code locally 
 
 #### Prerequisites
 * [npm](https://www.npmjs.com/)
+
 ```npm install npm@latest -g```
 
 #### Setup
 1. Clone the Repo
-```git clone https://github.com/ZackyTalib/twidget```
+
+  ```git clone https://github.com/ZackyTalib/twidget```
+
 2. Install the NPM packages
-```npm install```
+
+  ```npm install```
+
 3. Start the app
-```npm start```
+
+  ```npm start```
+
+4. Package the app
+
+  ```npm run package```
+
+5. Make the installer
+
+  ```npm run make```
 
 #### Installation
 Unlike the setup section, this section will show you how to install Twidget locally as an application (Without the source code).
