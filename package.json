@@ -30,9 +30,10 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "twidget",
-            "config": {
-              "setupIcon": "./build/icon.ico"
-            }
+            "authors": "Zacky VT",
+            "iconUrl": "./build/icon.ico",
+            "loadingGif": "",
+            "setupIcon": "./build/icon.ico"
           }
         },
         {
