@@ -82,7 +82,7 @@ Contributions are what make Twidget better and better. Any contributions you mak
 5. Open a Pull Request.
 
 ## License
-Distributed under the GNU GPLv3 License. See `LICENSE` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 Zacky VT - zackvt057@gmail.com
