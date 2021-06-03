@@ -1,5 +1,5 @@
 # Twidget
-![Demo Picture](https://github.com/ZackyTalib/twidget/raw/master/assets/demo/DemoPic.png)
+![Demo Picture](https://github.com/ZackyTalib/twidget/raw/master/build/demo/DemoPic.png)
 
 ## About
 Twidget is a desktop application to select and feature a Youtube Livestream Chat comment in OBS. It is used alongside OBS to select Youtube Livestream Chat  comments live and display it in OBS as the stream is happening.

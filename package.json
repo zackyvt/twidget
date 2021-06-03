@@ -1,7 +1,7 @@
 {
   "name": "twidget",
   "productName": "twidget",
-  "version": "1.0.1",
+  "version": "1.0.0-beta",
   "description": "An application that allows you to feature a Youtube LiveChat comment one-by-one on an OBS livestream.",
   "main": "src/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
       "packagerConfig": {
         "executableName": "Twidget",
         "name": "Twidget",
-        "icon": "./assets/icon.ico",
+        "icon": "./build/icon.ico",
         "asar": true
       },
       "makers": [
@@ -31,7 +31,7 @@
           "config": {
             "name": "twidget",
             "config": {
-              "setupIcon": "./assets/icon.ico"
+              "setupIcon": "./build/icon.ico"
             }
           }
         },
@@ -60,8 +60,7 @@
             "repository": {
               "owner": "ZackyTalib",
               "name": "twidget"
-            },
-            "prerelease": true
+            }
           }
         }
       ]
