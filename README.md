@@ -43,29 +43,22 @@ This section can also be found inside the Twidget app by clicking the help icon 
 
 ##### OBS Setup:
 1. Open OBS and create a new browser source
-![Create a new browser source](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image00.png)
 2. Set the browser source URL to *localhost:3000/source*
 3. Set the width to *450* and the height to *250*
 4. Insert the custom css: *body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }*
-![Browser source configuration](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image10.png)
 5. Enable the *"Refresh browser when scene becomes active"* option
-![Refresh browser when scene becomes active](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image11.png)
 6. Click *OK*
 
 ##### App Usage:
 1. Open Twidget and sign in if you have not
 2. Open OBS and open the scene where you have set up the Twidget browser source
 3. Click the *Start* button in Twidget and enter the Youtube Stream Link found in the address bar. (make sure to include the HTTPS prefix)
-![Live streaming URL](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image20.png)
-![Twidget connection popup](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image21.png)
 4. Wait until the stream chat comments get loaded in the chatbox
 5. Select the specific comments you would like to display in OBS
 6. The selected comments will appear in the OBS modal, this may take a while at the beggining. If it still does not appear after one minute, refresh the scene
-![Twidget OBS Source](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image30.png)
 7. You can also unselect comments you have already selected
 8. Scroll through the chatbox to see all the comments, Twidget updates the chatbox every 5 seconds
 9. You can change the theme of the chat source that appears in OBS by clicking the settings icon in the Chatbox Menubar and choose the templates
-![Twidget OBS Source](https://github.com/ZackyTalib/twidget/raw/master/src/assets/images/tutorialScreenshots/image40.png)
 10. To stop the stream, press the stop button
 
 #### FAQ
