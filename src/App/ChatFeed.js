@@ -65,6 +65,7 @@ export default class ChatFeed {
                 pageToken: this.nextPageToken
             }).then((res) => {
                 this.nextPageToken = res.data.nextPageToken;
+                console.log("here");
                 resolve(res.data);
             }).catch((error) => {
                 reject(error);
@@ -75,11 +76,6 @@ export default class ChatFeed {
     loadLiveChats(){
         this.getLiveChats().then((chats) => {
             let chatsArray = chats.items;
-
-            chatsArray.push(ChatTest.createMessageChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message));
-            chatsArray.push(ChatTest.createSuperChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message, ChatTest.dataFields().amount, 3));
-            chatsArray.push(ChatTest.createSuperChat(ChatTest.dataFields().name, ChatTest.dataFields().pfp, ChatTest.dataFields().message, ChatTest.dataFields().amount, 1));
-            chatsArray.push(ChatTest.createSuperSticker(ChatTest.name, ChatTest.dataFields().pfp, ChatTest.dataFields().amount, 3));
 
             chatsArrayLoop:
             for(let i=0; i<chatsArray.length; i++){
