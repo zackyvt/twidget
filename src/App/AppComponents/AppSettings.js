@@ -88,7 +88,7 @@ export default class AppSetting {
         html += '<input class="form-check-input" type="radio" optionName=' + optionName + ' name="' + optionType + '" id="' + optionType + optionId + '"' + (checked?"checked":"") + '>';
         html += '<label class="form-check-label" for="' + optionType + optionId + '">';
         html += optionDisplayName;
-        html += '</label><img src="../assets/images/templateImages/' + optionName.toLowerCase() + '.png"/></div>';
+        html += '</label><img src="../assets/images/templateImages/' + optionName + '.png"/></div>';
         return html;
     }
 }
