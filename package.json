@@ -34,7 +34,9 @@
           "config": {
             "name": "twidget",
             "authors": "Zacky VT",
-            "iconUrl": "https://raw.githubusercontent.com/ZackyTalib/twidget/master/build/icon.ico"
+            "iconUrl": "https://raw.githubusercontent.com/ZackyTalib/twidget/master/build/icon.ico",
+            "loadingGif": "./build/twidgetInstallerGIF.gif",
+            "setupIcon": "./build/installationIcon.ico"
           }
         },
         {
@@ -75,7 +77,8 @@
     "electron-store": "^8.0.0",
     "express": "^4.17.1",
     "firebase": "^8.6.1",
-    "googleapis": "^73.0.0"
+    "googleapis": "^73.0.0",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
