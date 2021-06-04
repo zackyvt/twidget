@@ -1,7 +1,7 @@
 {
   "name": "twidget",
   "productName": "twidget",
-  "version": "1.0.1-beta",
+  "version": "1.0.2-beta",
   "description": "An application that allows you to feature a Youtube LiveChat comment one-by-one on an OBS livestream.",
   "main": "src/index.js",
   "scripts": {
