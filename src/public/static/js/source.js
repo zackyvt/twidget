@@ -31,6 +31,7 @@ firebase.auth().signInWithCredential(credential).then((val) => {
 function listenOnData(){
     firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/data').on('value', (snapshot) => {
         console.log(snapshot.val());
+        document.getElementsByClassName("readyMessage")[0].style.display = "none";
         sourceManager.render(snapshot.val());
     });
 }
