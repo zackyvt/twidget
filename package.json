@@ -23,7 +23,10 @@
         "executableName": "Twidget",
         "name": "Twidget",
         "icon": "./build/icon.ico",
-        "asar": true
+        "asar": true,
+        "win32metadata": {
+          "CompanyName": "ZackyVT"
+        }
       },
       "makers": [
         {
@@ -31,9 +34,7 @@
           "config": {
             "name": "twidget",
             "authors": "Zacky VT",
-            "iconUrl": "./build/icon.ico",
-            "loadingGif": "",
-            "setupIcon": "./build/icon.ico"
+            "iconUrl": "https://raw.githubusercontent.com/ZackyTalib/twidget/master/build/icon.ico"
           }
         },
         {

@@ -1,0 +1,175 @@
+.superchatContainer {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: 10px 60px auto;
+    grid-template-rows: 10px 45px 10px auto;
+    border-radius: 10px;
+    width: auto;
+}
+  
+.superchatContainer .superchatPfp {
+    border-radius: 50%;
+    width: 45px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+  
+.superchatContainer .superchatDetails {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+  
+.superchatContainer .superchatName {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14;
+    line-height: 1.5;
+}
+  
+.superchatContainer .superchatAmount {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16;
+}
+  
+.superchatContainer .superchatContent {
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border-radius: 0px 0px 10px 10px;
+}
+  
+.superchatContainer .superchatText {
+    margin: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* Tiers */
+
+.noSuperchatContent .superchatContent {
+    display: none !important;
+}
+
+/* Tier One */
+.tier1 {
+    background-color: #1565c0;
+}
+
+.tier1 .superchatContent {
+    display: none;
+}
+
+.tier1 .superchatName {
+    color: rgb(255 255 255 / 70%);
+}
+
+.tier1 .superchatAmount, .tier1 .superchatText {
+    color: #ffffff;
+}
+
+/* Tier Two */
+.tier2 {
+    background-color: #00b8d4;
+}
+
+.tier2 .superchatContent {
+    background-color: #00e5ff;
+    display: block;
+}
+
+.tier2 .superchatName {
+    color: #000000;
+}
+
+.tier2 .superchatAmount, .tier2 .superchatText {
+    color: #000000;
+}
+
+/* Tier Three */
+.tier3 {
+    background-color: #00bfa5;
+}
+
+.tier3 .superchatContent {
+    background-color: #1de9b6;
+    display: block;
+}
+
+.tier3 .superchatName {
+    color: #000000;
+}
+
+.tier3 .superchatAmount, .tier3 .superchatText {
+    color: #000000;
+}
+
+/* Tier Four */
+.tier4 {
+    background-color: #ffb300;
+}
+
+.tier4 .superchatContent {
+    background-color: #ffca28;
+    display: block;
+}
+
+.tier4 .superchatName {
+    color: #000000;
+}
+
+.tier4 .superchatAmount, .tier4 .superchatText {
+    color: #000000;
+}
+
+/* Tier Five */
+.tier5 {
+    background-color: #e65100;
+}
+
+.tier5 .superchatContent {
+    background-color: #f57c00;
+    display: block;
+}
+
+.tier5 .superchatName {
+    color: rgb(255 255 255 / 70%);
+}
+
+.tier5 .superchatAmount, .tier5 .superchatText {
+    color: #ffffff;
+}
+
+/* Tier Six */
+.tier6 {
+    background-color: #c2185b;
+}
+
+.tier6 .superchatContent {
+    background-color: #e91e63;
+    display: block;
+}
+
+.tier6 .superchatName {
+    color: rgb(255 255 255 / 70%);
+}
+
+.tier6 .superchatAmount, .tier6 .superchatText {
+    color: #ffffff;
+}
+
+/* Tier Seven */
+.tier7 {
+    background-color: #d00000;
+}
+
+.tier7 .superchatContent {
+    background-color: #e62117;
+    display: block;
+}
+
+.tier7 .superchatName {
+    color: rgb(255 255 255 / 70%);
+}
+
+.tier7 .superchatAmount, .tier7 .superchatText {
+    color: #ffffff;
+}

@@ -4,7 +4,7 @@ export default class AppSetting {
         this.settingTemplates = {
             "MessageChat": "clean",
             "SuperChat": "superchatClean",
-            "SuperSticker": "superchatNormal"
+            "SuperSticker": "superstickerNormal"
         };
         this.templateOptions = {
             messageChat: [
@@ -19,7 +19,7 @@ export default class AppSetting {
                 {displayName: "Superchat Clean", name: "superchatClean"}
             ],
             supersticker: [
-                {displayName: "Supersticker Standard", name: "superchatNormal"}
+                {displayName: "Supersticker Standard", name: "superstickerNormal"}
             ]
         }
     }

@@ -77,6 +77,9 @@ export default class ChatFeed {
         this.getLiveChats().then((chats) => {
             let chatsArray = chats.items;
 
+            chatsArray.push(ChatTest.createSuperChat("Zacky VT", ChatTest.dataFields().pfp, ChatTest.dataFields().message, "$19.99", 4));
+            chatsArray.push(ChatTest.createSuperSticker("Zacky VT", ChatTest.dataFields().pfp, "$19.99", 4));
+
             chatsArrayLoop:
             for(let i=0; i<chatsArray.length; i++){
                 let chat = chatsArray[i];
