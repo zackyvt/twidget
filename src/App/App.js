@@ -55,7 +55,7 @@ class App {
 
             /* Construct new account details with true auth user */
             this.accountDetails = new AccountDetails(this.auth.authData.name, this.auth.authData.pfp, this.signOut);
-            this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings);
+            this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings, this.auth.server);
             this.sourceConnection.initializeSourceConnection();
             if(this.streamButton.buttonState == "wait"){
                 this.streamButton.buttonState = "start";

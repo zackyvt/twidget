@@ -1,7 +1,8 @@
 export default class SourceConnection {
-    constructor(firebase, appSettings){
+    constructor(firebase, appSettings, server){
         this.firebase = firebase;
         this.appSettings = appSettings;
+        this.server = server;
     }
 
     initializeSourceConnection(){
@@ -23,10 +24,12 @@ export default class SourceConnection {
                 }
                 break;
         }
+        this.server.emitData(chatDataN);
         this.firebase.database().ref('users/' + this.firebase.auth().currentUser.uid + '/data').set(chatDataN);
     }
 
     setInvisible(){
+        this.server.emitData({visible: false});
         this.firebase.database().ref('users/' + this.firebase.auth().currentUser.uid + '/data').set({visible: false});
     }
 }

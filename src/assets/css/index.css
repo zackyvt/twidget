@@ -134,10 +134,41 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  height: auto;
+  justify-content: start;
+}
+
+.chatBoxContent .loading {
+  display: none;
 }
 
 .chatBoxContent .chat:first-child {
   margin-top: 15px;
+}
+
+.chatBoxLoading {
+  height: 100%;
+  justify-content: center;
+}
+
+.chatBoxLoading .loading {
+  display: block;
+  align-self: center;
+  color: rgba(0,0,0,0.5);
+  font-size: small;
+}
+
+.chatBoxLoading .loading::after {
+  content: "sdad";
+  animation: loadingAnimation 4s infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {content: "";}
+  25% {content: ".";}
+  50% {content: "..";}
+  75% {content: "...";}
+  100% {content: "....";}
 }
 
 /* Chat */

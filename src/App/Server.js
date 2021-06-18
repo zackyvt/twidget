@@ -1,4 +1,5 @@
 const express = require('express');
+const socket = require("socket.io");
 const path = require('path');
 
 export default class Server {
@@ -8,6 +9,8 @@ export default class Server {
         this.authCallback = authCallback;
         this.port = 3000;
         this.url = "http://localhost:" + this.port + "/oauthcallback";
+        this.server;
+        this.io;
     }
 
     startSource(credential){
@@ -30,8 +33,23 @@ export default class Server {
             res.render('oauthRedirect');
         });
 
-        this.app.listen(this.port, () => {
+        this.server = this.app.listen(this.port, () => {
             serverCallback();
         });
+
+        this.clientCommunication();
+    }
+
+    clientCommunication(){
+        this.io = socket(this.server);
+
+        this.io.on("connection", function (socket) {
+            console.log("Made socket connection");
+            socket.broadcast.emit()
+        });
+    }
+
+    emitData(data){
+        this.io.emit('newChat', data);
     }
 }

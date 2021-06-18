@@ -30,8 +30,17 @@ export default class ChatBox {
         newChat.setButtonController();
     }
 
+    displayLoading(){
+        this.chatBox.classList.add("chatBoxLoading");
+    }
+
+    hideLoading(){
+        this.chatBox.classList.remove("chatBoxLoading");
+    }
+
     clearChatBox(){
-        this.chatBox.innerHTML = "";
+        this.chatBox.innerHTML = "<div class='loading'>Loading</div>";
+        this.chatBox.classList.remove("chatBoxLoading");
     }
 
     messageSelected(id){

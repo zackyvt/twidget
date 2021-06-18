@@ -1,4 +1,5 @@
 const {google} = require('googleapis');
+const axios = require('axios');
 
 import ChatTest from "./ChatTest.js";
 
@@ -24,14 +25,18 @@ export default class ChatFeed {
         this.app = app;
         this.chatFeedInterval;
         this.chats = [];
+        this.chatOn = false;
     }
 
     initializeChatFeed(){
         return new Promise((resolve, reject) => {
             this.getBroadcast().then((broadcast) => {
+                this.chatOn = true;
                 this.liveChatId = broadcast.liveChatId;
-                this.loadLiveChats();
-                this.chatFeedInterval = window.setInterval(() => {this.loadLiveChats();}, 5000);
+                this.app.chatBox.displayLoading();
+                this.loadLiveChats(true);
+                this.chatFeedInterval = window.setInterval(() => {}, 10000);
+                //this.chatFeedInterval = window.setInterval(() => {this.loadLiveChats();}, 5000);
                 resolve();
             }).catch((error) => {
                 reject(error);
@@ -41,11 +46,12 @@ export default class ChatFeed {
 
     clearChatFeed(){
         window.clearInterval(this.chatFeedInterval);
+        this.chatOn = false;
     }
 
     getBroadcast(){
         return new Promise((resolve, reject) => {
-            this.api.liveBroadcasts.list({
+            /*this.api.liveBroadcasts.list({
                 id: this.broadcastId,
                 auth: this.auth,
                 part: "snippet"
@@ -53,7 +59,8 @@ export default class ChatFeed {
                 resolve(data.data.items[0].snippet);
             }).catch((error) => {
                 reject(error);
-            });
+            });*/
+            resolve("-");
         });
     }
 
@@ -65,7 +72,6 @@ export default class ChatFeed {
                 pageToken: this.nextPageToken
             }).then((res) => {
                 this.nextPageToken = res.data.nextPageToken;
-                console.log("here");
                 resolve(res.data);
             }).catch((error) => {
                 reject(error);
@@ -73,8 +79,34 @@ export default class ChatFeed {
         });
     }
 
-    loadLiveChats(){
-        this.getLiveChats().then((chats) => {
+    getLiveChatsServer(){
+        return new Promise((resolve, reject) => {
+            console.log("livechats");
+            axios.post("https://us-central1-twidgetapp.cloudfunctions.net/getChats", {
+                liveChatID: this.broadcastId,
+                pageToken: this.nextPageToken ? this.nextPageToken : "none"
+            }).then(res => {
+                console.log(res);
+                this.nextPageToken = res.data.data.nextPageToken;
+                resolve(res.data.data);
+            }).catch(error => {
+                console.log(error);
+                reject(error);
+            });
+        });
+    }
+
+    loadLiveChats(first){
+        this.getLiveChatsServer().then((chats) => {
+            if(!this.chatOn){
+                return;
+            }
+
+            if(first){
+                this.app.chatBox.hideLoading();
+            }
+
+            console.log("gotChat");
             let chatsArray = chats.items;
 
             chatsArrayLoop:
@@ -104,6 +136,8 @@ export default class ChatFeed {
                 this.chats.push(chatsArray[i]);
                 this.chatCallback.call(this.app, null, chatsArray[i]);
             }
+
+            window.setTimeout(() => {this.loadLiveChats(false)}, 1000);
         }).catch((error) => {
             this.chatCallback.call(this.app, error, null);
         });

@@ -1,6 +1,6 @@
 import SourceManager from "/static/SourceTemplates/SourceManager.js";
 
-var firebaseConfig = {
+/*var firebaseConfig = {
     apiKey: "AIzaSyBAm2dGJlw4wwn_ERLsjAXhxg9qqzZYFFg",
     authDomain: "twidgetapp.firebaseapp.com",
     databaseURL: "https://twidgetapp-default-rtdb.firebaseio.com",
@@ -12,11 +12,19 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+firebase.analytics();*/
+
+var socket = io();
 
 const sourceManager = new SourceManager();
 
-let credential = firebase.auth.GoogleAuthProvider.credential(document.querySelector("#credential").innerHTML);
+socket.on('newChat', (data) => {
+    console.log(data);
+    document.getElementsByClassName("readyMessage")[0].style.display = "none";
+    sourceManager.render(data);
+});
+
+/*let credential = firebase.auth.GoogleAuthProvider.credential(document.querySelector("#credential").innerHTML);
 firebase.auth().signInWithCredential(credential).then((val) => {
     console.log(val);
     listenOnData();
@@ -34,4 +42,4 @@ function listenOnData(){
         document.getElementsByClassName("readyMessage")[0].style.display = "none";
         sourceManager.render(snapshot.val());
     });
-}
+}*/
