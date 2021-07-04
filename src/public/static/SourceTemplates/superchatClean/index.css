@@ -1,6 +1,5 @@
 .superchatContainer {
     display: flex;
-    margin-top: 20px;
     background-color: white;
     border-left: 7px solid red;
 }

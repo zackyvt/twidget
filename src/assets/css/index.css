@@ -134,6 +134,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x:hidden;
   height: auto;
   justify-content: start;
 }
@@ -142,7 +143,7 @@ body {
   display: none;
 }
 
-.chatBoxContent .chat:first-child {
+.chatBoxContent .chat:nth-child(2) {
   margin-top: 15px;
 }
 
@@ -179,13 +180,21 @@ body {
   grid-template-rows: 15px auto;
   margin: 0px 10px 15px 10px;
 }
-
+ 
 .chatPfp {
   grid-column: 1;
   grid-row-start: 1;
   grid-row-end: 3;
   height: 30px;
   border-radius: 50%;
+}
+
+.chatPlatformLogo {
+  width: 15px;
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 3px;
+  margin-left: 17px;
 }
 
 .chatName {

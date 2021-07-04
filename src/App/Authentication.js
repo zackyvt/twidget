@@ -25,7 +25,6 @@ export default class Authentication {
           };
 
         this.firebase.initializeApp(firebaseConfig);
-        this.firebase.analytics();
 
         this.authData = {};
         this.server;
@@ -33,6 +32,7 @@ export default class Authentication {
         this.store = new Store();
         this.signInCallback = signInCallback;
         this.appObject = appObject;
+        this.analytics = this.firebase.analytics();
     }
 
     /* Authentication Initialization*/

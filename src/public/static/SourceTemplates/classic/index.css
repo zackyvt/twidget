@@ -12,21 +12,24 @@
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    border: 2px solid red;
     position: absolute;
 }
 
-.classicContainer .ytlogo {
+.classicContainer .pflogo {
     width: 60px;
     position: absolute;
     left: 35px;
     top: 50px
 }
 
+#fbpl {
+    width: 40px;
+    left: 43px;
+}
+
 .classicContainer .nameBar {
     padding: 7px;
     padding-left: 20px;
-    background-color:#de3a36;
     color: white;
     width: 75%;
     border-radius: 0px 9px 0px 0px;
@@ -42,4 +45,40 @@
     background-color: white;
     border-radius: 0px 10px 10px 10px;
     padding-left: 35px;
+}
+
+/* yt platform */
+
+.youtubePlatform .nameBar {
+    background-color: #de3a36;
+}
+
+.youtubePlatform .pfp {
+    border: 2px solid red;
+}
+
+.youtubePlatform #ytpl {
+    display: block;
+}
+
+.youtubePlatform #fbpl {
+    display: none;
+}
+
+/* fb platform */
+
+.facebookPlatform .nameBar {
+    background-color: #2980b9;
+}
+
+.facebookPlatform .pfp {
+    border: 2px solid #2980b9;
+}
+
+.facebookPlatform #ytpl {
+    display: none;
+}
+
+.facebookPlatform #fbpl {
+    display: block;
 }

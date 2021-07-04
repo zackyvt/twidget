@@ -1,8 +1,6 @@
 .simpleContainer {
     display: flex;
-    margin-top: 20px;
     background-color: white;
-    border-left: 7px solid red;
 }
 
 .simpleContainer .pfpBlock {
@@ -14,11 +12,15 @@
     margin: 10px;
 }
 
-.simpleContainer .pfpBlock .ytlogo {
+.simpleContainer .pfpBlock .pflogo {
     position: absolute;
     height: 30px;
     left: 35px;
     top: 40px;
+}
+
+#fbpl {
+    padding-left: 5px;
 }
 
 .simpleContainer .contentBar .name {
@@ -30,4 +32,32 @@
 
 .simpleContainer .contentBar .message {
     margin: 5px 10px 10px 12px;
+}
+
+/* yt platform */
+
+.youtubePlatform {
+    border-left: 7px solid red;
+}
+
+.youtubePlatform #ytpl {
+    display: block;
+}
+
+.youtubePlatform #fbpl {
+    display: none;
+}
+
+/* fb platform */
+
+.facebookPlatform {
+    border-left: 7px solid #2980b9;
+}
+
+.facebookPlatform #ytpl {
+    display: none;
+}
+
+.facebookPlatform #fbpl {
+    display: block;
 }

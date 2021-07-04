@@ -1,0 +1,73 @@
+<h2 class="streamConnectionLabel swal2-title">Stream Connection</h2>
+<div class="streamTab" id="youtubeTab">
+    <img src="https://image.flaticon.com/icons/png/128/187/187209.png">
+    <input class="swal2-input" placeholder="Enter Youtube URL..." name="youtubeInput">
+</div>
+<div class="streamTab" id="facebookTab">
+    <img src="https://image.flaticon.com/icons/png/512/145/145802.png">
+    <input class="swal2-input" placeholder="Enter Facebook URL..." style="display: none;">
+    <div class="connectWithFacebook">
+        <img src="https://image.flaticon.com/icons/png/128/145/145802.png">
+        <p>Connect to Facebook</p>
+    </div>
+</div>
+<button class="swal2-confirm swal2-styled connection-buttons" id="connectButtonOk">Connect</button>
+<style>
+    .streamTab {
+        display: flex;
+        justify-content: center;
+    }
+
+    .streamTab > img {
+        padding: 5px;
+        width: 2em;
+        height: 2em;
+        margin: 0.5em auto;
+        border-radius: 100%;
+        margin-right: 10px;
+    }
+
+    .streamTab input {
+        margin: 0.5em auto;
+        height: 2em;
+        font-size: 1em;
+    }
+
+    .connection-buttons {
+        margin-top: 20px;
+    }
+
+    .connectWithFacebook {
+        margin-top: 10px;
+        padding: 3px 20px;
+        display: flex;
+        background-color: #3b5998;
+        align-content: center;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .connectWithFacebook:hover {
+        opacity: 0.9;
+    }
+
+    .connectWithFacebook img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    
+    .connectWithFacebook p {
+        margin: 0;
+        height: fit-content;
+        align-self: center;
+        font-size: 0.8em;
+        opacity: 0.75;
+        margin-right: 20px;
+        font-weight: bold;
+    }
+</style>

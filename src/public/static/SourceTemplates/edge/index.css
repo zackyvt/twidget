@@ -1,6 +1,4 @@
 .edgeContainer {
-    margin-top: 20px;
-    border-bottom: 5px solid #f34036;
     display: flex;
     background-color: white;
     align-items: flex-start;
@@ -17,7 +15,6 @@
     margin: 0;
     margin-top: 10px;
     margin-left: 5px;
-    color: red;
     font-weight: bold;
     font-size: .8rem;
 }
@@ -25,4 +22,24 @@
 .edgeContainer .contentBar .message {
     margin: 5px 5px 10px 5px;
     font-size: 1rem;
+}
+
+/* youtube platform */
+
+.youtubePlatform {
+    border-bottom: 5px solid #f34036;
+}
+
+.youtubePlatform .contentBar .name {
+    color: red;
+}
+
+/* facebook platform */
+
+.facebookPlatform {
+    border-bottom: 5px solid #2980b9;
+}
+
+.facebookPlatform .contentBar .name {
+    color: #2980b9;
 }

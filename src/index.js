@@ -53,7 +53,7 @@ const createWindow = () => {
   // Open the DevTools.
   mainWindow.setMenu(null);
 
-  if(isDev){
+  if(isDev || true){
     globalShortcut.register("CmdOrCtrl+F12", () => {
       mainWindow.isFocused() && mainWindow.webContents.toggleDevTools();
     });

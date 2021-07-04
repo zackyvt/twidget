@@ -8,6 +8,9 @@ import StreamButton from "./AppComponents/StreamButton.js"
 import AppTutorial from "./AppComponents/AppTutorial.js"
 import AppSettings from "./AppComponents/AppSettings.js"
 
+import Facebook from "./Facebook.js"
+import ConnectionForm from "./AppComponents/ConnectionForm.js"
+
 const { ipcRenderer } = require('electron')
 const appVersion = require('electron').remote.app.getVersion();
 
@@ -53,6 +56,9 @@ class App {
                 this.initializeLogin();
             }
 
+            this.auth.analytics.logEvent('signed_in');
+            this.auth.analytics.setUserProperties({version: appVersion});
+
             /* Construct new account details with true auth user */
             this.accountDetails = new AccountDetails(this.auth.authData.name, this.auth.authData.pfp, this.signOut);
             this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings, this.auth.server);
@@ -75,12 +81,14 @@ class App {
     }
 
     initializeLogin(){
+        this.auth.analytics.logEvent('goto_login');
         window.location.href = "login.html";
     }
 
     signOut(){
         this.auth.signOut().then(() => {
             console.log("Sign Out Success");
+            this.auth.analytics.logEvent('signout');
             this.initializeLogin();
         }).catch((error) => {this.logError(error, "Sign Out Error!")});
     }
@@ -88,30 +96,27 @@ class App {
     startService(){
         return new Promise((resolve, reject) => {
             if(this.sourceConnection){
-                /* Get URL and connect to chat feed */
-                Swal.fire({
-                    titleText: "Stream Connection",
-                    text: "Enter the youtube livestream URL",
-                    input: "url",
-                    showCancelButton: true,
-                    confirmButtonTetx: "Connect",
-                    validationMessage: "Invalid URL. Please also make sure the URL contains the \"https://\" text"
-                }).then((value) => {
-                    console.log(value);
-                    if(value.isDismissed || value.isDenied){
+                let facebook = new Facebook(this.auth);
+                let connectionForm = new ConnectionForm(facebook, this.auth);
+                connectionForm.showPopup((status, values) => {
+                    if(!status){
+                        this.auth.analytics.logEvent('start_service', {state: "canceled"});
                         resolve(false);
                     } else {
-                        this.startChatFeed(this.parseYoutubeLink(value.value)).then((state) => {resolve(state);});
+                        this.auth.analytics.logEvent('start_service', {state: "success"});
+                        this.startChatFeed(values, facebook).then((state) => {
+                            resolve(state);
+                        });
                     }
                 });
             }
         });
     }
 
-    startChatFeed(link){
+    startChatFeed(links, facebook){
         return new Promise((resolve, reject) => {
             /* Construct Chat Feed */
-            this.chatFeed = new ChatFeed(this.auth.oauth2Client, link, (error, chat) => {
+            this.chatFeed = new ChatFeed(this.auth, links, facebook, (error, chat) => {
                 if(error){
                     if(this.streamButton.buttonState == "stop"){
                         this.streamButton.buttonClicked();
@@ -126,31 +131,15 @@ class App {
             this.chatFeed.initializeChatFeed().then(() => {
                 resolve(true);
             }).catch((error) => {
-                resolve(false);
                 this.logError(error);
+                resolve(false);
             });
         });
     }
 
-    parseYoutubeLink(link){
-        let res = link;
-        res = link.split("/");
-        res.splice(0,2);
-        switch(res[0]){
-            case "studio.youtube.com":
-              return res[2];
-              break;
-          case "youtu.be":
-              return res[1];
-              break;
-          case "www.youtube.com":
-              return res[1].split("=")[1].split("&")[0];
-              break;
-        }
-    }
-
     stopService(){
         return new Promise((resolve, reject) => {
+            this.auth.analytics.logEvent('stop_service');
             this.chatFeed.clearChatFeed();
             this.chatBox.clearChatBox();
             this.chatFeed = null;

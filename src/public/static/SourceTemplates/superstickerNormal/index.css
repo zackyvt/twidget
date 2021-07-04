@@ -1,6 +1,5 @@
 .superchatContainer {
     display: grid;
-    margin-top: 20px;
     grid-template-columns: 10px 60px auto;
     grid-template-rows: 10px 45px 10px auto;
     border-radius: 10px;

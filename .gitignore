@@ -87,3 +87,7 @@ typings/
 
 # Electron-Forge
 out/
+
+pytchat/
+
+uidesign.xd

@@ -11,6 +11,8 @@ export default class Server {
         this.url = "http://localhost:" + this.port + "/oauthcallback";
         this.server;
         this.io;
+        this.currentData = {};
+        this.noSocket = true;
     }
 
     startSource(credential){
@@ -28,6 +30,10 @@ export default class Server {
             res.sendStatus(200);
         });
 
+        this.app.get('/facebookconnected', (req, res) => {
+            res.send("connected");
+        });
+
         this.app.get('/oauthcallback', (req, res) => {
             this.authCallback.call(this.authApp, req.query.code);
             res.render('oauthRedirect');
@@ -43,13 +49,23 @@ export default class Server {
     clientCommunication(){
         this.io = socket(this.server);
 
-        this.io.on("connection", function (socket) {
+        this.io.on("connection", (socket) => {
             console.log("Made socket connection");
-            socket.broadcast.emit()
+            if(!this.currentData.visible && this.noSocket){
+                this.io.emit('displayLabel', {});
+            }
+            if(this.currentData.visible && this.noSocket){
+                this.io.emit('newChat', this.currentData);
+            } 
+            if(!this.noSocket){
+                this.io.emit('newChat', this.currentData);
+            }
+            this.noSocket = false;
         });
     }
 
     emitData(data){
+        this.currentData = data;
         this.io.emit('newChat', data);
     }
 }

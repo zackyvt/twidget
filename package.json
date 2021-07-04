@@ -1,7 +1,7 @@
 {
   "name": "twidget",
   "productName": "twidget",
-  "version": "1.2.0-beta",
+  "version": "1.3.0-beta",
   "description": "An application that allows you to feature a Youtube LiveChat comment one-by-one on an OBS livestream.",
   "main": "src/index.js",
   "scripts": {
@@ -23,7 +23,9 @@
         "executableName": "Twidget",
         "name": "Twidget",
         "icon": "./build/icon.ico",
-        "asar": true,
+        "asar": {
+          "unpack": "**/src/processor.exe"
+        },
         "win32metadata": {
           "CompanyName": "ZackyVT"
         }
@@ -76,10 +78,12 @@
     "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.0.0",
+    "electron-util": "^0.16.0",
     "express": "^4.17.1",
     "firebase": "^8.6.1",
     "googleapis": "^73.0.0",
     "socket.io": "^4.1.2",
+    "tree-kill": "^1.2.2",
     "update-electron-app": "^2.0.1"
   },
   "devDependencies": {

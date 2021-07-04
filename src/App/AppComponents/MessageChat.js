@@ -1,7 +1,7 @@
 import ChatButton from "./ChatButton.js"
 
 export default class MessageChat {
-    constructor(name, pfp, message, userStatus, id, selectedCall, unselectedCall){
+    constructor(name, pfp, message, userStatus, platform, id, selectedCall, unselectedCall){
         this.name = name;
         this.pfp = pfp;
         this.message = message;
@@ -10,6 +10,7 @@ export default class MessageChat {
         this.selectedCall = selectedCall;
         this.unselectedCall = unselectedCall;
         this.userStatus = userStatus;
+        this.platform = platform;
     }
 
     buildMessage(){
@@ -24,6 +25,16 @@ export default class MessageChat {
         let imagePfp = document.createElement("img");
         imagePfp.classList.add("chatPfp");
         imagePfp.src = this.pfp;
+
+        let platformLogo = document.createElement("img");
+        platformLogo.classList.add("chatPlatformLogo");
+
+        if(this.platform == "youtube"){
+            platformLogo.src = "https://image.flaticon.com/icons/png/512/187/187209.png";
+        } 
+        if(this.platform == "facebook"){
+            platformLogo.src = "https://image.flaticon.com/icons/png/512/145/145802.png";
+        }
 
         let chatName = document.createElement("h6");
         chatName.classList.add("chatName");
@@ -51,6 +62,7 @@ export default class MessageChat {
         chatButton.classList.add("btn-sm");
 
         chatDiv.appendChild(imagePfp);
+        chatDiv.appendChild(platformLogo);
         chatDiv.appendChild(chatName);
         chatDiv.appendChild(chatMessage);
         chatDiv.appendChild(chatButton);

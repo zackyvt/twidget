@@ -19,7 +19,7 @@ export default class ChatBox {
     addChat(chat){
         let newChat;
         if(chat.type == "MessageChat"){
-            newChat = new MessageChat(chat.name, chat.pfp, chat.message, chat.userStatus, this.chats.length, this.messageSelected, this.messageUnselected);
+            newChat = new MessageChat(chat.name, chat.pfp, chat.message, chat.userStatus, chat.platform, this.chats.length, this.messageSelected, this.messageUnselected);
         } else if(chat.type == "SuperChat"){
             newChat = new SuperChat(chat.name, chat.pfp, chat.message, chat.amount, chat.tier, this.chats.length, this.messageSelected, this.messageUnselected);
         }

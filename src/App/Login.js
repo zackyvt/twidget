@@ -44,6 +44,7 @@ class Login {
     }
 
     loginButton(){
+        this.auth.analytics.logEvent('clicked_login');
         this.auth.signIn();
     }
 

@@ -1,6 +1,24 @@
 export default class SourceManager {
     constructor(){
         this.currentTemplate = null;
+        this.pfpCacheList = [];
+    }
+
+    retrieveFromCache(pfp){
+        let cachePtr = this.pfpCacheList.find((element) => {
+            return element.asid == pfp.split("?asid=")[1].split("&")[0];
+        });
+
+        if(!cachePtr){
+            this.pfpCacheList.push({
+                asid: pfp.split("?asid=")[1].split("&")[0],
+                link: pfp
+            });
+            return pfp;
+        }
+
+        console.log(cachePtr.link);
+        return cachePtr.link;
     }
 
     async render(data){
@@ -8,6 +26,7 @@ export default class SourceManager {
             document.getElementsByClassName("root")[0].style.display = "none";
             return;
         }
+
         document.getElementsByClassName("root")[0].style.display = "block";
 
         await this.includeTempalate(data.template);
@@ -16,6 +35,14 @@ export default class SourceManager {
             document.getElementById("name").innerHTML = data.name;
             document.getElementById("pfp").src = data.pfp;
             document.getElementById("message").innerHTML = data.message;
+
+            if(data.platform == "youtube"){
+                document.getElementsByClassName("root")[0].children[0].classList.add("youtubePlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.remove("facebookPlatform");
+            } else {
+                document.getElementsByClassName("root")[0].children[0].classList.remove("youtubePlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.add("facebookPlatform");
+            }
         }
 
         if(data.type == "SuperChat"){
@@ -33,6 +60,7 @@ export default class SourceManager {
             }
             document.getElementById("container").classList.add("tier" + (data.tier > 7 ? 7 : data.tier));
         }
+
     }
 
     includeTempalate(template){

@@ -1,5 +1,4 @@
 .darkContainer {
-    margin-top: 20px;
     background-color: #1f304a;
     display: flex;
     align-items: flex-start;
@@ -7,7 +6,6 @@
 }
 
 .darkContainer .pfp {
-    display: none;
     width: 35px;
     margin: 20px;
     border-radius: 100%;
