@@ -36,10 +36,15 @@ export default class SourceManager {
             document.getElementById("pfp").src = data.pfp;
             document.getElementById("message").innerHTML = data.message;
 
+            document.getElementsByClassName("root")[0].children[0].classList.add("youtubePlatform");
+            document.getElementsByClassName("root")[0].children[0].classList.remove("facebookPlatform");
+
             if(data.platform == "youtube"){
                 document.getElementsByClassName("root")[0].children[0].classList.add("youtubePlatform");
                 document.getElementsByClassName("root")[0].children[0].classList.remove("facebookPlatform");
-            } else {
+            } 
+            
+            if(data.platform == "facebook") {
                 document.getElementsByClassName("root")[0].children[0].classList.remove("youtubePlatform");
                 document.getElementsByClassName("root")[0].children[0].classList.add("facebookPlatform");
             }
