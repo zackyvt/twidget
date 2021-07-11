@@ -68,4 +68,8 @@ export default class Server {
         this.currentData = data;
         this.io.emit('newChat', data);
     }
+
+    preloadImage(imageUrl){
+        this.io.emit('preloadImage', imageUrl);
+    }
 }

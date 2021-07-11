@@ -21,9 +21,15 @@ export default class SourceManager {
         return cachePtr.link;
     }
 
+    preloadImage(url){
+        let img=new Image();
+        img.src=url;
+    }
+
     async render(data){
         if(!data.visible){
             document.getElementsByClassName("root")[0].style.display = "none";
+            document.getElementsByClassName("root")[0].innerHTML = "";
             return;
         }
 

@@ -11,6 +11,10 @@ export default class SourceConnection {
         });
     }
 
+    preloadImage(chat){
+        this.server.preloadImage(chat.pfp);
+    }
+
     setChat(chatData){
         let chatDataN = chatData;
         switch(chatDataN.type){

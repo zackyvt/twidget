@@ -123,7 +123,8 @@ class App {
                     }
                     this.logError(error);
                 } else {
-                    this.chatBox.addChat(chat)
+                    this.sourceConnection.preloadImage(chat);
+                    this.chatBox.addChat(chat);
                 }
             }, this);
 

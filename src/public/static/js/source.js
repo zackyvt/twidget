@@ -13,3 +13,7 @@ socket.on('newChat', (data) => {
     document.getElementsByClassName("readyMessage")[0].style.display = "none";
     sourceManager.render(data);
 });
+
+socket.on('preloadImage', (data) => {
+    sourceManager.preloadImage(data);
+});
