@@ -21,7 +21,7 @@ const createWindow = () => {
     width: 540,
     height: 590,
     minHeight: 560,
-    minWidth: 400,
+    minWidth: 425,
     icon: path.join(__dirname, '/assets/icon.ico'),
     webPreferences: {
       nodeIntegration: true,

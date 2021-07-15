@@ -35,6 +35,9 @@ export default class MessageChat {
         if(this.platform == "facebook"){
             platformLogo.src = "https://image.flaticon.com/icons/png/512/145/145802.png";
         }
+        if(this.platform == "twitch"){
+            platformLogo.src = "https://image.flaticon.com/icons/png/128/3938/3938147.png";
+        }
 
         let chatName = document.createElement("h6");
         chatName.classList.add("chatName");

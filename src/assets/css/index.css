@@ -164,12 +164,42 @@ body {
   animation: loadingAnimation 4s infinite;
 }
 
+.chatBoxLoading .chat {
+  display: none;
+}
+
 @keyframes loadingAnimation {
   0% {content: "";}
   25% {content: ".";}
   50% {content: "..";}
   75% {content: "...";}
   100% {content: "....";}
+}
+
+/* Scroll Arrow */
+
+.scrollArrow {
+  opacity: 90%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 55px;
+  border-radius: 100%;
+  left: calc(50% - 15px);
+  background-color: #3498db;
+}
+
+.scrollArrow img {
+  display:block;
+  margin:auto;
+  margin-top: 10px;
+  width: 12px;
+  transform: rotate(90deg);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.scrollArrow:hover {
+  cursor: pointer;
 }
 
 /* Chat */

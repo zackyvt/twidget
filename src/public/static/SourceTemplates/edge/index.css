@@ -43,3 +43,13 @@
 .facebookPlatform .contentBar .name {
     color: #2980b9;
 }
+
+/* twitch platform */
+
+.twitchPlatform {
+    border-bottom: 5px solid #6441a5;
+}
+
+.twitchPlatform .contentBar .name {
+    color: #6441a5;
+}

@@ -15,7 +15,7 @@ export default class ConnectionForm {
 
     async showPopup(callback){
         Swal.fire({
-            html: html,
+            html: await this.parseHTMLFile(),
             showConfirmButton: false,
             showCloseButton: true
         }).then((value) => {
@@ -34,15 +34,17 @@ export default class ConnectionForm {
         document.getElementById("connectButtonOk").addEventListener('click', () => {
             let youtubeValue = document.querySelector("#youtubeTab input").value;
             let facebookValue = document.querySelector("#facebookTab input").value;
+            let twitchValue = document.querySelector("#twitchTab input").value;
 
-            if(!this.validURL(youtubeValue) && !this.validURL(facebookValue)){
+            if(!this.validURL(youtubeValue) && !this.validURL(facebookValue) && !this.validURL(twitchValue)){
                 document.querySelector("#youtubeTab input").classList.add("swal2-inputerror");
                 document.querySelector("#facebookTab input").classList.add("swal2-inputerror");
             } else {
                 Swal.close();
                 callback(true, {
                     youtubeUrl: this.parseYoutubeLink(youtubeValue),
-                    facebookUrl: this.parseFacebookLink(facebookValue)
+                    facebookUrl: this.parseFacebookLink(facebookValue),
+                    twitchUrl: this.parseTwitchLink(twitchValue)
                 });
             }
         });
@@ -102,6 +104,14 @@ export default class ConnectionForm {
               return res[1].split("=")[1].split("&")[0];
               break;
         }
+    }
+
+    parseTwitchLink(link){
+        if(!link){
+            return link;
+        }
+
+        return link.split(".tv/")[1];
     }
 
 }

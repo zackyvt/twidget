@@ -7,9 +7,11 @@ import AccountDetails from "./AppComponents/AccountDetails.js"
 import StreamButton from "./AppComponents/StreamButton.js"
 import AppTutorial from "./AppComponents/AppTutorial.js"
 import AppSettings from "./AppComponents/AppSettings.js"
+import ConnectionForm from "./AppComponents/ConnectionForm.js"
+import AutoScroll from "./AppComponents/AutoScroll.js"
 
 import Facebook from "./Facebook.js"
-import ConnectionForm from "./AppComponents/ConnectionForm.js"
+import Twitch from "./Twitch.js"
 
 const { ipcRenderer } = require('electron')
 const appVersion = require('electron').remote.app.getVersion();
@@ -24,6 +26,7 @@ class App {
         this.sourceConnection;
         this.appTutorial;
         this.appSettings;
+        this.autoScroll;
     }
 
     initializeMain(){
@@ -35,6 +38,8 @@ class App {
         this.auth = new Authentication(this.handleSignIn, this);
         this.appTutorial = new AppTutorial();
         this.appSettings = new AppSettings();
+        this.autoScroll = new AutoScroll();
+        this.autoScroll.scrollArrow();
 
         document.querySelector("#version").innerHTML = "Version " + appVersion;
 
@@ -97,6 +102,7 @@ class App {
         return new Promise((resolve, reject) => {
             if(this.sourceConnection){
                 let facebook = new Facebook(this.auth);
+                let twitch = new Twitch(this.auth);
                 let connectionForm = new ConnectionForm(facebook, this.auth);
                 connectionForm.showPopup((status, values) => {
                     if(!status){
@@ -104,7 +110,7 @@ class App {
                         resolve(false);
                     } else {
                         this.auth.analytics.logEvent('start_service', {state: "success"});
-                        this.startChatFeed(values, facebook).then((state) => {
+                        this.startChatFeed(values, facebook, twitch).then((state) => {
                             resolve(state);
                         });
                     }
@@ -113,18 +119,20 @@ class App {
         });
     }
 
-    startChatFeed(links, facebook){
+    startChatFeed(links, facebook, twitch){
         return new Promise((resolve, reject) => {
             /* Construct Chat Feed */
-            this.chatFeed = new ChatFeed(this.auth, links, facebook, (error, chat) => {
+            this.chatFeed = new ChatFeed(this.auth, links, facebook, twitch, (error, chat) => {
                 if(error){
                     if(this.streamButton.buttonState == "stop"){
                         this.streamButton.buttonClicked();
                     }
                     this.logError(error);
                 } else {
+                    let scrollState = this.autoScroll.atBottom();
                     this.sourceConnection.preloadImage(chat);
                     this.chatBox.addChat(chat);
+                    if(scrollState) this.autoScroll.autoScroll();
                 }
             }, this);
 

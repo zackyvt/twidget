@@ -18,13 +18,17 @@ String.prototype.escape = function() {
 };
 
 export default class ChatFeed {
-    constructor(auth, links, facebook, chatCallback, app){
+    constructor(auth, links, facebook, twitch, chatCallback, app){
         this.youtubeStatus = false;
         this.facebookStatus = false;
+        this.twitchStatus = false;
+
         this.facebook = facebook;
+        this.twitch = twitch;
 
         this.broadcastId;
         this.facebookId;
+        this.twitchId;
 
         if(links.youtubeUrl){
             this.youtubeStatus = true;
@@ -32,6 +36,9 @@ export default class ChatFeed {
         } if(links.facebookUrl){
             this.facebookStatus = true;
             this.facebookId = links.facebookUrl;
+        } if(links.twitchUrl){
+            this.twitchStatus = true;
+            this.twitchId = links.twitchUrl;
         }
 
         this.auth = auth;
@@ -57,6 +64,9 @@ export default class ChatFeed {
                 if(this.facebookStatus){
                     this.setupFacebook();
                 }
+                if(this.twitchStatus){
+                    this.setupTwitch();
+                }
                 resolve();
             }).catch((error) => {
                 reject(error);
@@ -73,6 +83,15 @@ export default class ChatFeed {
                 this.processFacebookChat(this.facebook.parseFacebookChat(chats));
             });
         }); 
+    }
+
+    setupTwitch(){
+        if(!this.youtubeStatus){
+            this.app.chatBox.hideLoading();
+        }
+        this.twitch.loadChats(this.twitchId, (chats) => {
+            this.processTwitchChat(this.twitch.parseTwitchChat(chats));
+        });
     }
 
     clearChatFeed(){
@@ -190,4 +209,16 @@ export default class ChatFeed {
         this.chatCallback.call(this.app, null, facebookChat);
     }
 
+    processTwitchChat(twitchChatRaw){
+        if(!this.chatOn){
+            return;
+        }
+
+        this.auth.analytics.logEvent('chatLoad', {type: "MessageChat", userStatus: twitchChatRaw.userStatus, platform: "twitch"});
+        let twitchChat = twitchChatRaw;
+        twitchChat.template = this.app.appSettings.settingTemplates.MessageChat;
+        console.log(twitchChat);
+        this.chats.push(twitchChat);
+        this.chatCallback.call(this.app, null, twitchChat);
+    }
 }

@@ -22,7 +22,7 @@
     top: 50px
 }
 
-#fbpl {
+#fbpl, #twpl {
     width: 40px;
     left: 43px;
 }
@@ -61,10 +61,13 @@
     display: block;
 }
 
-.youtubePlatform #fbpl {
+.youtubePlatform #twpl {
     display: none;
 }
 
+.youtubePlatform #fbpl {
+    display: none;
+}
 /* fb platform */
 
 .facebookPlatform .nameBar {
@@ -79,6 +82,32 @@
     display: none;
 }
 
+.facebookPlatform #twpl {
+    display: none;
+}
+
 .facebookPlatform #fbpl {
     display: block;
+}
+
+/* twich platform */
+
+.twitchPlatform .nameBar {
+    background-color: #6441a5;
+}
+
+.twitchPlatform .pfp {
+    border: 2px solid #6441a5;
+}
+
+.twitchPlatform #ytpl {
+    display: none;
+}
+
+.twitchPlatform #twpl {
+    display: block;
+}
+
+.twitchPlatform #fbpl {
+    display: none;
 }

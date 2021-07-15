@@ -44,15 +44,24 @@ export default class SourceManager {
 
             document.getElementsByClassName("root")[0].children[0].classList.add("youtubePlatform");
             document.getElementsByClassName("root")[0].children[0].classList.remove("facebookPlatform");
+            document.getElementsByClassName("root")[0].children[0].classList.remove("twitchPlatform");
 
             if(data.platform == "youtube"){
                 document.getElementsByClassName("root")[0].children[0].classList.add("youtubePlatform");
                 document.getElementsByClassName("root")[0].children[0].classList.remove("facebookPlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.remove("twitchPlatform");
             } 
             
             if(data.platform == "facebook") {
                 document.getElementsByClassName("root")[0].children[0].classList.remove("youtubePlatform");
                 document.getElementsByClassName("root")[0].children[0].classList.add("facebookPlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.remove("twitchPlatform");
+            }
+
+            if(data.platform == "twitch"){
+                document.getElementsByClassName("root")[0].children[0].classList.add("twitchPlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.remobe("facebookPlatform");
+                document.getElementsByClassName("root")[0].children[0].classList.remove("youtubePlatform");
             }
         }
 
