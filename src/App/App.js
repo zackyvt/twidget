@@ -66,7 +66,7 @@ class App {
 
             /* Construct new account details with true auth user */
             this.accountDetails = new AccountDetails(this.auth.authData.name, this.auth.authData.pfp, this.signOut);
-            this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings, this.auth.server);
+            this.sourceConnection = new SourceConnection(this.auth.firebase, this.appSettings, this.auth.server, this.chatBox);
             this.sourceConnection.initializeSourceConnection();
             if(this.streamButton.buttonState == "wait"){
                 this.streamButton.buttonState = "start";
@@ -131,6 +131,7 @@ class App {
                 } else {
                     let scrollState = this.autoScroll.atBottom();
                     this.sourceConnection.preloadImage(chat);
+                    this.sourceConnection.addDockChat(chat);
                     this.chatBox.addChat(chat);
                     if(scrollState) this.autoScroll.autoScroll();
                 }
@@ -151,6 +152,7 @@ class App {
             this.auth.analytics.logEvent('stop_service');
             this.chatFeed.clearChatFeed();
             this.chatBox.clearChatBox();
+            this.sourceConnection.addDockChat(null);
             this.chatFeed = null;
             this.sourceConnection.setInvisible();
             resolve(true);

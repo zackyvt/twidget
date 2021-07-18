@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+/* ChatBox */
+
+.chatBox {
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y:hidden;
+  }
+  
+  .chatBoxHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .chatBoxHeader h6 {
+    margin: 20px 0px 20px 20px;
+    padding: 0;
+  }
+  
+  .chatBoxHeader .toolbar {
+    margin-right: 20px;
+  }
+  
+  .chatBoxHeader .helpButton {
+    width: 20px;
+    padding-top: 5px;
+    margin-right: 5px;
+    cursor:pointer;
+  }
+  
+  .chatBoxHeader .settingsButton {
+    width: 18px;
+    padding-top: 5px;
+    cursor:pointer;
+  }
+  
+  .chatBoxHeader img:hover {
+    opacity: 0.7;
+  }
+  
+  .chatBoxContent {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: auto;
+    justify-content: start;
+  }
+  
+  .chatBoxContent .loading {
+    display: none;
+  }
+  
+  .chatBoxContent .chat:nth-child(2) {
+    margin-top: 15px;
+  }
+  
+  .chatBoxLoading {
+    height: 100%;
+    justify-content: center;
+  }
+  
+  .chatBoxLoading .loading {
+    display: block;
+    align-self: center;
+    color: rgba(0,0,0,0.5);
+    font-size: small;
+  }
+  
+  .chatBoxLoading .loading::after {
+    content: "sdad";
+    animation: loadingAnimation 4s infinite;
+  }
+  
+  .chatBoxLoading .chat {
+    display: none;
+  }
+  
+  @keyframes loadingAnimation {
+    0% {content: "";}
+    25% {content: ".";}
+    50% {content: "..";}
+    75% {content: "...";}
+    100% {content: "....";}
+  }
+  
+  /* Scroll Arrow */
+  
+  .scrollArrow {
+    opacity: 90%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 25px;
+    border-radius: 100%;
+    left: calc(50% - 15px);
+    background-color: #3498db;
+  }
+  
+  .scrollArrow img {
+    display:block;
+    margin:auto;
+    margin-top: 10px;
+    width: 12px;
+    transform: rotate(90deg);
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  }
+  
+  .scrollArrow:hover {
+    cursor: pointer;
+  }
+  
+  /* Chat */
+  
+  .chat {
+    display: grid;
+    grid-template-columns: 30px 10px 1fr 70px;
+    grid-template-rows: 15px auto;
+    margin: 0px 10px 15px 10px;
+  }
+   
+  .chatPfp {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .chatPlatformLogo {
+    width: 15px;
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 3px;
+    margin-left: 17px;
+  }
+  
+  .chatName {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: small;
+    margin-bottom: 0;
+  }
+  
+  .chatMessage {
+    grid-column: 3;
+    grid-row: 2;
+    font-size: small;
+    margin: 0;
+  }
+  
+  .chatButton {
+    grid-column: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 25px;
+    width: 60px;
+    align-self: center;
+    font-size: x-small;
+    justify-self: end;
+  }
+  
+  /* Superchat */
+  
+  .superchat {
+    display: grid;
+    grid-template-columns: 10px 40px 10px 1fr 10px;
+    grid-template-rows: 10px 15px 25px 10px auto;
+    margin: 0px 10px 15px 10px;
+    border-radius: 10px;
+  }
+  
+  .superchatPfp {
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 40px;
+    border-radius: 50px;
+  }
+  
+  .superchatName {
+    grid-column: 4;
+    grid-row: 2;
+    font-size: small;
+  }
+  
+  .superchatAmount {
+    grid-column: 4;
+    grid-row: 3;
+    font-size: medium;
+  }
+  
+  .superchatButton {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    align-self: center;
+    grid-column: 4;
+    justify-self: end;
+    height: 25px;
+    width: 60px;
+    font-size: x-small;
+  }
+  
+  .superchatMessage {
+    grid-row: 5;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .superchatMessage * {
+    font-weight: normal;
+    margin: 10px;
+    font-size: small;
+  }
+  
+  /* Owner Implementation */
+  
+  .ownerChat {
+    grid-template-rows: 20px auto;
+  }
+  
+  .ownerName {
+    background-color: #ffd600;
+    padding: 2px 7px 2px 7px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  
+  /* Moderator Implementation */
+  
+  .moderatorName {
+    color: #4684f1;
+  }

@@ -13,6 +13,8 @@ export default class Server {
         this.io;
         this.currentData = {};
         this.noSocket = true;
+        this.chatStack;
+        this.selectedChatCallback;
     }
 
     startSource(credential){
@@ -28,6 +30,10 @@ export default class Server {
 
         this.app.get('/', (req, res) => {
             res.sendStatus(200);
+        });
+
+        this.app.get('/dock', (req, res) => {
+            res.render("dock");
         });
 
         this.app.get('/facebookconnected', (req, res) => {
@@ -51,6 +57,7 @@ export default class Server {
 
         this.io.on("connection", (socket) => {
             console.log("Made socket connection");
+
             if(!this.currentData.visible && this.noSocket){
                 this.io.emit('displayLabel', {});
             }
@@ -60,7 +67,15 @@ export default class Server {
             if(!this.noSocket){
                 this.io.emit('newChat', this.currentData);
             }
+            if(this.chatStack){
+                this.io.emit('chatStack', this.chatStack);
+            }
+
             this.noSocket = false;
+
+            socket.on("selectedChatApp", (data) => {
+                this.selectedChatCallback(data);
+            });
         });
     }
 
@@ -68,8 +83,20 @@ export default class Server {
         this.currentData = data;
         this.io.emit('newChat', data);
     }
+    
+    addDockChat(chat){
+        this.io.emit('addDockChat', chat);
+    }
+
+    clearDockChat(){
+        this.io.emit('clearDockChat');
+    }
 
     preloadImage(imageUrl){
         this.io.emit('preloadImage', imageUrl);
+    }
+
+    setSelectedChat(chat){
+        this.io.emit('selectedChat', chat);
     }
 }

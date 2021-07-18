@@ -53,7 +53,7 @@ export default class ChatBox {
             this.chats[i].unselect();
         }
         console.log("Chat " + id + " selected");
-
+        
         let selectedChat = this.chatsRaw[id];
         selectedChat.id = id;
 
