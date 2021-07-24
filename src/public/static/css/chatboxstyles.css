@@ -1,0 +1,48 @@
+.chatBoxHeader {
+    display: none !important;
+}
+
+#scrollArrow {
+    display: none !important;
+}
+
+.chatButton, .superchatButton {
+    visibility: hidden;
+}
+
+.chatBoxContent::-webkit-scrollbar {
+    display: none;
+}
+
+.chatBoxContent, .chatBox, body {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.chat {
+    padding: 10px;
+    background-color: #192a42;
+    color: white;
+    animation: chat-transition 0.5s;
+    margin-bottom: 5px;
+}
+
+.superchat {
+    grid-template-rows: 10px 15px 25px 0px auto !important;
+    margin-bottom: 5px;
+    animation: chat-transition 0.5s;
+    background-color: #192a42 !important;
+}
+
+.superchatMessage {
+    background-color: #192a42 !important;
+}
+
+.superchat h5, h6, p {
+    color: white !important;
+}
+
+@keyframes chat-transition {
+    from {margin-left: 100px;}
+    to {margin-left: 10px;}
+}

@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a1066841ff.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/css/dock.css">
-    <title>Dock</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a1066841ff.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/css/dock.css">
+  <script>
+    function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    if(getParameterByName("chatflow") === "true"){
+      document.head.insertAdjacentHTML("beforeend", '<link rel="stylesheet" href="/static/css/chatboxstyles.css"/>');
+    }
+  </script>
+  <title>Dock</title>
 </head>
+
 <body>
-    <div class="chatBox border">
-        <div class="chatBoxHeader border-bottom">
-          <h6>Live Chat Replay</h6>
-        </div>
-        <div id="chatBox" class="chatBoxContent">
-          <div class="loading">Loading</div>
-        </div>
-        <div id="scrollArrow" class="scrollArrow" style="display: none;">
-          <img src="https://image.flaticon.com/icons/png/128/271/271226.png">
-        </div>
-      </div>
-      <script src="/socket.io/socket.io.js"></script>
-      <script src="/static/js/dock/dock.js" type="module"></script>
+  <div class="chatBox border">
+    <div class="chatBoxHeader border-bottom">
+      <h6>Live Chat Replay</h6>
+    </div>
+    <div id="chatBox" class="chatBoxContent">
+      <div class="loading">Loading</div>
+    </div>
+    <div id="scrollArrow" class="scrollArrow" style="display: none;">
+      <img src="https://image.flaticon.com/icons/png/128/271/271226.png">
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/js/dock/dock.js" type="module"></script>
 </body>
+
 </html>

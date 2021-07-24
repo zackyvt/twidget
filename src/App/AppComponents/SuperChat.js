@@ -24,7 +24,25 @@ export default class SuperChat {
         this.unselectCall = unselectCall;
     }
 
+    buildMessageAlt(){
+        let openDiv = '<div id="chat' + this.id + '" class="superchat" style="background-color: ' + this.tierColor[0] + ';">';
+        let pfp = '<img class="superchatPfp" src="' + this.pfp + '"/>';
+        let name = '<h6 class="superchatName" style="color: ' + this.tierColor[2] + ';">' + this.name + '</h6>';
+        let amount = '<h5 class="superchatAmount" style="color: ' + this.tierColor[3] + ';">' + this.amount + '</h5>';
+        let button = '<button class="superchatButton btn btn-success btn-sm"></button>';
+        let chatMessageContent = "";
+        if(this.message !== "" && this.tier !== 0){
+            chatMessageContent = '<p>' + this.message + '</p>';
+        }
+        let message = '<div class="superchatMessage" style="background-color: ' + this.tierColor[1] + '; color: ' + this.tierColor[2] + ';">' + chatMessageContent + "</div>";
+
+        let chatDiv = openDiv + pfp + name + amount + button + message + "</div>";
+        return chatDiv;
+    } 
+
     buildMessage(){
+        return this.buildMessageAlt();
+
         let chatDiv = document.createElement("div");
         chatDiv.id = "chat" + this.id;
         chatDiv.classList.add("superchat");

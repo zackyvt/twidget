@@ -56,6 +56,9 @@ class App {
 
     addChat(chat){
         let scrollState = this.autoScroll.atBottom();
+        if(getParameterByName("chatflow") === "true"){
+            scrollState = true;
+        }
         this.chatBox.addChat(chat);
         if(scrollState) this.autoScroll.autoScroll();
     }

@@ -36,6 +36,10 @@ export default class Server {
             res.render("dock");
         });
 
+        this.app.get('/chatflow', (req, res) => {
+            res.render("chatflow");
+        });
+
         this.app.get('/facebookconnected', (req, res) => {
             res.send("connected");
         });
