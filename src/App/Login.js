@@ -51,10 +51,10 @@ class Login {
     handleSignIn(error, result){
         if(error){
             this.logError(error);
-            document.querySelector(".signInLoad").style.display = "none";
+            document.querySelector(".signInLoad").classList.remove("signInStart");
         } else {
             if(result.preprocess){
-                document.querySelector(".signInLoad").style.display = "block";
+                document.querySelector(".signInLoad").classList.add("signInStart");
             } else {
                 this.initializeMain();
             }

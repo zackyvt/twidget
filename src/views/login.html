@@ -16,17 +16,17 @@
     <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 
-<body>
-    <div class="loginContainer">
-        <img class="loginLogo" src="../assets/images/logo.png">
-        <h1 class="loginText display-6">Sign in to Google to use Twidget</h1>
-        <button id="loginButton" class="loginButton border">
-            <img src="https://1000logos.net/wp-content/uploads/2016/11/New-Google-Logo.jpg">
-            <p class="display-6">Sign In with Google</p>
-        </button>
-        <div class="signInLoad spinner-border text-primary" role="status" style="display: none;">
+<body class="loginBody">
+    <div class="loginContainer border">
+        <div class="signInLoad spinner-border text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
+        <img class="loginLogo" src="../assets/images/logo.png">
+        <p class="loginText">Sign in using your Google account <br/> to start using Twidget!</p>
+        <button id="loginButton" class="loginButton border">
+            <img src="../assets/images/googleicon.png">
+            <p class="display-6">Sign in with Google</p>
+        </button>
     </div>
 
     <script type="module" src="../App/Login.js"></script>

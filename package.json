@@ -1,7 +1,7 @@
 {
   "name": "twidget",
   "productName": "twidget",
-  "version": "1.3.0-beta",
+  "version": "1.4.0-beta",
   "description": "An application that allows you to feature a Youtube LiveChat comment one-by-one on an OBS livestream.",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
         "name": "Twidget",
         "icon": "./build/icon.ico",
         "asar": {
-          "unpack": "**/src/processor.exe"
+          "unpack": "**/src/assets/templates/*"
         },
         "win32metadata": {
           "CompanyName": "ZackyVT"
@@ -39,6 +39,18 @@
             "iconUrl": "https://raw.githubusercontent.com/ZackyTalib/twidget/master/build/icon.ico",
             "loadingGif": "./build/twidgetInstallerGIF.gif",
             "setupIcon": "./build/installationIcon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-appx",
+          "config": {
+            "assets": "D:\\Dev\\twidget\\appxassets",
+            "packageName": "19948Twidget.Twidget",
+            "packageDisplayName": "Twidget",
+            "packageVersion": "1.4.0.0",
+            "makeVersionWinStoreCompatible:": true,
+            "publisher": "CN=AB36C64F-525E-4767-A509-6F123FAC3199",
+            "manifest": "D:\\Dev\\twidget\\build\\AppXManifest.xml"
           }
         },
         {
@@ -89,6 +101,7 @@
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-appx": "^6.0.0-beta.59",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",

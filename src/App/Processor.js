@@ -14,7 +14,7 @@ export default class Processor {
     }
 
     async runProcessor(liveChatID) {
-        this.child = spawn(fixPathForAsarUnpack(path.join(__dirname, '../processor.exe')), [liveChatID], {windowsHide: true});
+        this.child = spawn(fixPathForAsarUnpack(path.join(__dirname, '../assets/templates/processor.exe')), [liveChatID], {windowsHide: true});
     
         this.child.stdout.setEncoding('utf8');
     

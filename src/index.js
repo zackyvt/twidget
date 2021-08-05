@@ -1,9 +1,6 @@
 const { app, BrowserWindow, globalShortcut, ipcMain } = require('electron');
 const path = require('path');
 
-const Store = require('electron-store');
-Store.initRenderer();
-
 const isDev = require('electron-is-dev');
 
 require('update-electron-app')({
@@ -17,6 +14,9 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = () => {
   // Create the browser window.
+  const Store = require('electron-store');
+  Store.initRenderer();
+
   const mainWindow = new BrowserWindow({
     width: 540,
     height: 590,
@@ -32,10 +32,8 @@ const createWindow = () => {
   });
 
   const loadingWindow = new BrowserWindow({
-    width: 540,
-    height: 590,
-    minHeight: 560,
-    minWidth: 400,
+    width: 425,
+    height: 560,
     icon: path.join(__dirname, '/assets/icon.ico'),
     frame: false,
     alwaysOnTop: true
@@ -46,8 +44,13 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, '/views/index.html'));
 
   ipcMain.on('stopLoad', (event, arg) => {
-    loadingWindow.destroy();
-    mainWindow.show();
+    if(!(mainWindow.isVisible())){
+      const pos = loadingWindow.getPosition();
+      loadingWindow.destroy();
+      mainWindow.show();
+      mainWindow.focus();
+      mainWindow.setPosition(pos[0], pos[1]);
+    }
   });
 
   // Open the DevTools.
