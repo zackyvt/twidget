@@ -1,7 +1,7 @@
 {
   "name": "twidget",
   "productName": "twidget",
-  "version": "1.4.0-beta",
+  "version": "1.4.1-beta",
   "description": "An application that allows you to feature a Youtube LiveChat comment one-by-one on an OBS livestream.",
   "main": "src/index.js",
   "scripts": {
@@ -47,7 +47,7 @@
             "assets": "D:\\Dev\\twidget\\appxassets",
             "packageName": "19948Twidget.Twidget",
             "packageDisplayName": "Twidget",
-            "packageVersion": "1.4.0.0",
+            "packageVersion": "1.4.0.1",
             "makeVersionWinStoreCompatible:": true,
             "publisher": "CN=AB36C64F-525E-4767-A509-6F123FAC3199",
             "manifest": "D:\\Dev\\twidget\\build\\AppXManifest.xml"
