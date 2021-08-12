@@ -4,9 +4,9 @@
    xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
    xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
   <Identity Name="19948Twidget.Twidget"
-    ProcessorArchitecture="x86"
+    ProcessorArchitecture="x64"
     Publisher="CN=AB36C64F-525E-4767-A509-6F123FAC3199"
-    Version="1.4.0.1" />
+    Version="1.4.1.0" />
   <Properties>
     <DisplayName>Twidget</DisplayName>
     <PublisherDisplayName>Twidget</PublisherDisplayName>
