@@ -20,13 +20,13 @@ export default class MessageChat {
 
         let platformSrc;
         if(this.platform == "youtube"){
-            platformSrc = "https://image.flaticon.com/icons/png/512/187/187209.png";
+            platformSrc = "../../src/public/static/images/youtube.png";
         } 
         if(this.platform == "facebook"){
-            platformSrc = "https://image.flaticon.com/icons/png/512/145/145802.png";
+            platformSrc = "../../src/public/static/images/facebook.png";
         }
         if(this.platform == "twitch"){
-            platformSrc = "https://image.flaticon.com/icons/png/128/3938/3938147.png";
+            platformSrc = "../../src/public/static/images/twitch.png";
         }
 
         let platformLogo = '<img class="chatPlatformLogo" src="' + platformSrc + '" />';
@@ -71,13 +71,13 @@ export default class MessageChat {
         platformLogo.classList.add("chatPlatformLogo");
 
         if(this.platform == "youtube"){
-            platformLogo.src = "https://image.flaticon.com/icons/png/512/187/187209.png";
+            platformLogo.src = "../../src/public/static/images/youtube.png";
         } 
         if(this.platform == "facebook"){
-            platformLogo.src = "https://image.flaticon.com/icons/png/512/145/145802.png";
+            platformLogo.src = "../../src/public/static/images/facebook.png";
         }
         if(this.platform == "twitch"){
-            platformLogo.src = "https://image.flaticon.com/icons/png/128/3938/3938147.png";
+            platformLogo.src = "../../src/public/static/images/twitch.png";
         }
 
         let chatName = document.createElement("h6");
